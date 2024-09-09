@@ -1,7 +1,6 @@
 'use strict'
 
-import { utilService } from "./util.service"
-import { saveToStorage, loadFromStorage } from "./storage.service"
+import { httpService } from "./http.service"
 
 export const dbService = {
     query,
@@ -11,40 +10,46 @@ export const dbService = {
     remove,
 }
 
-async function query(entityType) {
-    var entities = loadFromStorage(entityType) || []
-    return Promise.resolve(entities)
+async function query(endpoint, filterBy = {}) {
+    try {
+        const entities = await httpService.get(endpoint, filterBy)
+        return entities
+    } catch (err) {
+        throw err
+    }
 }
 
-async function get(entityType, entityId) {
-    const entities = await query(entityType)
-    const entity = entities.find(entity => entity._id === entityId)
-    if (!entity) throw new Error(`Get failed, cannot find ${entityType} with id: ${entityId}.`)
-    return entity
+async function get(endpoint, entityId) {
+    try {
+        const entity = httpService.get(`${endpoint}/${entityId}`)
+        if (!entity) throw new Error(`Get failed, cannot find ${endpoint} with id: ${entityId}.`)
+        return entity
+    } catch (err) {
+        throw err
+    }
 }
 
-async function post(entityType, newEntity) {
-    const entities = await query(entityType)
-    newEntity._id = utilService.makeId()
-    entities.push(newEntity)
-    saveToStorage(entityType, entities)
-    return Promise.resolve(newEntity)
+async function post(endpoint, newEntity) {
+    try {
+        httpService.post(endpoint, newEntity)
+        return newEntity
+    } catch (err) {
+        throw err
+    }
 }
 
-async function put(entityType, updatedEntity) {
-    const entities = await query(entityType)
-    const idx = entities.findIndex(entity => entity._id === updatedEntity._id)
-    if (idx < 0) throw new Error(`Update failed, cannot find ${entityType} with id: ${entityId}.`)
-    entities[idx] = updatedEntity
-    saveToStorage(entityType, entities)
-    return Promise.resolve(updatedEntity)
+async function put(endpoint, updatedEntity) {
+    try {
+        httpService.put(endpoint, updatedEntity)
+    } catch (err) {
+        throw err
+    }
 }
 
-async function remove(entityType, entityId) {
-    const entities = await query(entityType)
-    const idx = entities.findIndex(entity => entity._id === entityId)
-    if (idx < 0) throw new Error(`Removal failed, cannot find ${entityType} with id: ${entityId}.`)
-    entities.splice(idx, 1)
-    saveToStorage(entityType, entities)
-    return Promise.resolve()
+async function remove(endpoint, entityId) {
+    try {
+        httpService.delete(endpoint, entityId)
+    } catch (err) {
+        throw err
+    }
 }
