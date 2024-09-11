@@ -2,7 +2,7 @@
   <section>
     <LoginHeader />
     <main class="flex column center">
-      <h1><b>Log</b>> in</h1>
+      <h1><b>Log</b> in</h1>
       <label for="email">Email</label>
       <input type="email" id="password" />
       <label for="password">Password</label>
