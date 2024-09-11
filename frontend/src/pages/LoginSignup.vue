@@ -3,10 +3,10 @@
     <LoginHeader />
     <main class="flex column center">
       <h1><span>Log</span> In</h1>
-      <label for="email">Email</label>
-      <input type="email" id="password" />
-      <label for="password">Password</label>
-      <input type="password" id="password" />
+      <div v-for= "prop in formProps" :key="prop.prop" class="prop-wrapper flex align-center">
+        <label v-bind:for="prop.prop">{{ prop.prop }}</label>
+        <input v-bind:type="prop.prop" v-bind:id="prop.prop" />
+      </div>
       <button class="forgot-password">Forgot your password?</button>
       <button>
         Log in
@@ -46,6 +46,15 @@
 import LoginHeader from "@/cmps/LoginHeader.vue";
 export default {
   components: { LoginHeader },
+  data() {
+    return {
+      formProps: [],
+      hi: {lol: 'hi'}
+    }
+  },
+  mounted() {
+    this.formProps = [{prop: 'email'}, {prop: 'password'}]
+  }
 };
 </script>
 
@@ -60,6 +69,15 @@ main {
 
     span {
       font-weight: bold;
+    }
+  }
+
+  .prop-wrapper {
+
+    label {
+      margin-inline-end: 12px;
+      color: #777;
+      text-transform: capitalize;
     }
   }
 }
