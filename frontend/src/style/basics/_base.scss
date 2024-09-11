@@ -1,14 +1,9 @@
 * {
     box-sizing: border-box;
-    font-family: circular-thin, sans-serif;
 }
 
 body {
     margin: 0;
-}
-
-#root {
-    height: 100vh;
 }
 
 h1,
@@ -16,13 +11,10 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-    margin: .5em 0 .5em;
-}
-
+h6,
 p,
-pre {
-    margin: 0;
+label {
+    font-family: Figtree, Roboto, sans-serif;
 }
 
 a {
@@ -38,11 +30,4 @@ ul {
 
 button {
     cursor: pointer;
-}
-
-.overlay {
-    position: fixed;
-    inset: 0 0 0 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 3;
 }
