@@ -14,7 +14,7 @@
 }
 </script>
     
-<style lang="scss">
+<style scoped lang="scss">
   header {
     background-color: #f7f7f7;
     // height: rem(65px);
