@@ -1,9 +1,11 @@
 <template>
+  <section>
+    <AppHeader />
+    <NavBar />
     <main>
-        <AppHeader/>
-        <NavBar/>
-        <RouterView/>
+      <RouterView />
     </main>
+  </section>
 </template>
 
 <script>
@@ -12,7 +14,7 @@ import AppHeader from '../cmps/AppHeader.vue'
 import NavBar from '../cmps/NavBar.vue'
 
 export default {
-components: { AppHeader, NavBar}
+  components: { AppHeader, NavBar }
 }
 </script>
 
