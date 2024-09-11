@@ -1,0 +1,22 @@
+@import "./_vars";
+
+@mixin headerBtn {
+    height: 2.5rem;
+    width: 2.5rem;
+    color: $font-color;
+    background-color: transparent;
+    border: none;
+    border-radius: 0.25rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background-color: $green-btn-hover;
+    }
+
+    &:active {
+        scale: 0.95;
+    }
+}
