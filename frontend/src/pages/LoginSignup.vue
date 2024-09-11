@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="login-section">
     <LoginHeader />
     <main class="flex column center">
       <h1><span>Log</span> In</h1>
@@ -50,16 +50,18 @@ export default {
 </script>
 
 <style lang="scss">
-main {
-  padding: 40px;
+.login-section {
+  main {
+    padding: 40px;
 
-  h1 {
-    font-size: 40px;
-    font-weight: 200;
-    color: #333;
+    h1 {
+      font-size: 40px;
+      font-weight: 200;
+      color: #333;
 
-    span {
-      font-weight: bold;
+      span {
+        font-weight: bold;
+      }
     }
   }
 }
