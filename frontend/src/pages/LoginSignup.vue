@@ -3,7 +3,11 @@
     <LoginHeader />
     <main class="flex column center">
       <h1><span>Log</span> In</h1>
-      <div v-for= "prop in formProps" :key="prop.prop" class="prop-wrapper flex align-center">
+      <div
+        v-for="prop in formProps"
+        :key="prop.prop"
+        class="prop-wrapper flex align-center"
+      >
         <label v-bind:for="prop.prop">{{ prop.prop }}</label>
         <input v-bind:type="prop.prop" v-bind:id="prop.prop" />
       </div>
@@ -49,12 +53,12 @@ export default {
   data() {
     return {
       formProps: [],
-      hi: {lol: 'hi'}
-    }
+      hi: { lol: "hi" },
+    };
   },
   mounted() {
-    this.formProps = [{prop: 'email'}, {prop: 'password'}]
-  }
+    this.formProps = [{ prop: "email" }, { prop: "password" }];
+  },
 };
 </script>
 
@@ -75,11 +79,24 @@ export default {
   }
 
   .prop-wrapper {
+    margin-block-end: 20px;
 
     label {
       margin-inline-end: 12px;
       color: #777;
       text-transform: capitalize;
+      display: none;
+    }
+
+    input {
+      padding: 6px 12px;
+      width: 100%;
+      height: 40px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      color: #555;
+      outline: none;
     }
   }
 }
