@@ -9,11 +9,12 @@
         class="prop-wrapper flex align-center"
       >
         <label v-bind:for="prop.prop">{{ prop.prop }}</label>
-        <input v-bind:type="prop.prop" v-bind:id="prop.prop" />
+        <input v-bind:type="prop.prop" v-bind:id="prop.prop" class="no-placeholder-input"/>
+        <input v-bind:type="prop.prop" v-bind:id="prop.prop" class="with-placeholder-input" v-bind:placeholder="prop.prop" />
       </div>
-      <button class="forgot-password">Forgot your password?</button>
-      <button class="login-btn">
-        Log in
+      <button class="forgot-password-btn">Forgot your password?</button>
+      <button class="login-btn flex center">
+        <span>Log in</span>
         <span>
           <svg
             viewBox="0 0 20 20"
@@ -97,7 +98,25 @@ export default {
       font-size: 16px;
       color: #555;
       outline: none;
+
+      &::placeholder {
+        text-transform: capitalize;
+      }
     }
+
+    .no-placeholder-input {
+      display: none;
+    }
+  }
+
+  .forgot-password-btn {
+    background-color: transparent;
+    color: #1f76c2;
+  }
+
+  .login-btn {
+    background-color: #0073ea;
+    color: #fff;
   }
 }
 </style>
