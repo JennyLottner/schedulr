@@ -1,23 +1,17 @@
 <template>
   <header>
-    <img class="account-logo" src="https://cdn.monday.com/images/logos/monday_logo_short.png" alt="Monday logo"/>
+    <img class="schedulr-logo" src="../assets/logo.png" alt="Schedulr logo"/>
   </header>
 </template>
     
 <script>
   export default {
-  // computed: {
-  //   computedClass() {
-
-  //   }
-  // }
 }
 </script>
     
 <style scoped lang="scss">
   header {
     background-color: #f7f7f7;
-    // height: rem(65px);
     height: 65px;
     display: flex;
     padding-inline-start: 20px;
