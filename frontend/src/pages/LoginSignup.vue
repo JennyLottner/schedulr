@@ -12,7 +12,7 @@
         <input v-bind:type="prop.prop" v-bind:id="prop.prop" />
       </div>
       <button class="forgot-password">Forgot your password?</button>
-      <button>
+      <button class="login-btn">
         Log in
         <span>
           <svg
