@@ -144,6 +144,7 @@ export default {
       background-color: #0073ea;
       color: #fff;
       height: 48px;
+      border-radius: 5px;
 
       span {
         font-size: 18px;
