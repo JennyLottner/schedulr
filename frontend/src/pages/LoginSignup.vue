@@ -45,7 +45,11 @@
           </span>
         </button>
       </div>
-      <p>Or Sign in with</p>
+      <div class="sign-in-google flex">
+        <span class="separator"></span>
+        <p>Or Sign in with</p>
+        <span class="separator"></span>
+      </div>
       <button>Google</button>
       <p>
         Don't have an account yet? <RouterLink to="/signup">Sign up</RouterLink>
@@ -64,12 +68,8 @@ export default {
   components: { LoginHeader },
   data() {
     return {
-      formProps: [],
-      hi: { lol: "hi" },
+      formProps: [{ prop: "email" }, { prop: "password" }],
     };
-  },
-  mounted() {
-    this.formProps = [{ prop: "email" }, { prop: "password" }];
   },
 };
 </script>
@@ -77,10 +77,9 @@ export default {
 <style lang="scss">
 .login-section {
   main {
-    padding: 40px;
-
     .reg-login-wrapper {
-      max-width: 360px;
+      align-self: center;
+      padding: 40px;
 
       h1 {
         font-size: 40px;
@@ -92,67 +91,74 @@ export default {
           font-weight: bold;
         }
       }
-    }
 
-    .prop-wrapper {
-      margin-block-end: 20px;
-      align-self: self-start;
+      .prop-wrapper {
+        margin-block-end: 20px;
+        align-self: self-start;
 
-      label {
-        margin-inline-end: 12px;
-        color: #777;
-        text-transform: capitalize;
-        display: none;
-      }
-
-      input {
-        padding: 6px 12px;
-        width: 360px;
-        height: 40px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        font-size: 16px;
-        color: #555;
-        outline: none;
-        justify-self: flex-start;
-
-        &::placeholder {
+        label {
+          margin-inline-end: 12px;
+          color: #777;
           text-transform: capitalize;
-          opacity: 0.5;
+          display: none;
         }
 
-        &:focus {
-          border: 1px solid #66afe9;
+        input {
+          padding: 6px 12px;
+          width: 360px;
+          height: 40px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          font-size: 16px;
+          color: #555;
+          outline: none;
+          justify-self: flex-start;
 
+          &::placeholder {
+            text-transform: capitalize;
+            opacity: 0.5;
+          }
+
+          &:focus {
+            border: 1px solid #66afe9;
+          }
+        }
+
+        input.no-placeholder {
+          display: none;
         }
       }
 
-      input.no-placeholder  {
-        display: none;
-      }
-    }
-
-    .forgot-password-btn {
-      background-color: transparent;
-      color: #1f76c2;
-      align-self: flex-start;
-      font-size: 1em;
-      margin-block-end: 12px;
-    }
-
-    .login-btn {
-      background-color: #0073ea;
-      color: #fff;
-      height: 48px;
-      border-radius: 5px;
-
-      span {
-        font-size: 18px;
+      .forgot-password-btn {
+        background-color: transparent;
+        color: #1f76c2;
+        align-self: flex-start;
+        font-size: 1em;
+        margin-block-end: 12px;
       }
 
-      .svg-container {
-        margin-inline-start: 12px;
-        margin-block-start: 5px;
+      .login-btn {
+        background-color: #0073ea;
+        color: #fff;
+        height: 48px;
+        border-radius: 5px;
+
+        span {
+          font-size: 18px;
+        }
+
+        .svg-container {
+          margin-inline-start: 12px;
+          margin-block-start: 5px;
+        }
+      }
+    }
+    
+    .sign-in-google {
+      
+      .separator {
+        width: 200px;
+        border: .5px solid #c5c7d0;
       }
     }
   }
