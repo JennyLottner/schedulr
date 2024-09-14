@@ -45,19 +45,30 @@
           </span>
         </button>
       </div>
-      <div class="sign-in-google flex">
+      <div class="sign-in-google flex center">
         <span class="separator"></span>
         <p>Or Sign in with</p>
         <span class="separator"></span>
       </div>
-      <button>Google</button>
-      <p>
-        Don't have an account yet? <RouterLink to="/signup">Sign up</RouterLink>
-      </p>
-      <p>
-        Can't log in?
-        <RouterLink to="/help-center">Visit our help center</RouterLink>
-      </p>
+      <button class="google-btn flex center">
+        <img
+          class="social-login-logo"
+          src="https://cdn.monday.com/images/logo_google_v2.svg"
+          aria-hidden="true"
+          alt=""
+        />
+        <span>Google</span>
+      </button>
+      <div class="no-account flex column align-center">
+        <p>
+          Don't have an account yet?
+          <RouterLink to="/signup" class="signup-page-link">Sign up</RouterLink>
+        </p>
+        <p>
+          Can't log in?
+          <RouterLink to="/help-center" class="help-center-page-link">Visit our help center</RouterLink>
+        </p>
+      </div>
     </main>
   </section>
 </template>
@@ -79,7 +90,7 @@ export default {
   main {
     .reg-login-wrapper {
       align-self: center;
-      padding: 40px;
+      padding: 40px 40px 0 40px;
 
       h1 {
         font-size: 40px;
@@ -142,6 +153,7 @@ export default {
         color: #fff;
         height: 48px;
         border-radius: 5px;
+        margin-block-end: 32px;
 
         span {
           font-size: 18px;
@@ -153,12 +165,45 @@ export default {
         }
       }
     }
-    
+
     .sign-in-google {
-      
+      min-width: 100%;
+      margin-block-end: 32px;
+
       .separator {
         width: 200px;
-        border: .5px solid #c5c7d0;
+        border: 0.5px solid #c5c7d0;
+        height: 0.5px;
+      }
+
+      p {
+        min-width: max-content;
+        padding-inline: 1rem;
+      }
+    }
+
+    .google-btn {
+      align-self: center;
+      border-radius: 4px;
+      padding: 12px 16px;
+      border: 1px solid #c5c7d0;
+      background-color: transparent;
+
+      img {
+        margin-inline-end: 8px;
+      }
+
+      span {
+        font-size: 14px;
+        color: #333;
+      }
+    }
+
+    .no-account {
+      padding-block-end: 40px;
+      
+      .signup-page-link, .help-center-page-link {
+        color: #0fa2e2;
       }
     }
   }
