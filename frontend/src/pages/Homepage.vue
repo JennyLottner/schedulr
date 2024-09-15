@@ -15,7 +15,6 @@ export default {
   height: 100%;
   padding: 0.75rem;
   border-radius: 0.5rem 0 0 0;
-
   background-color: white;
 }
 </style>
