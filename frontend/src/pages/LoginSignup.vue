@@ -15,11 +15,13 @@
           <input
             v-bind:type="prop.prop"
             v-bind:id="prop.prop"
+            v-model="credentials[prop]"
             class="no-placeholder input"
           />
           <input
             v-bind:type="prop.prop"
             v-bind:id="prop.prop"
+            v-model="credentials[prop]"
             class="with-placeholder input"
             v-bind:placeholder="prop.prop"
           />
@@ -85,6 +87,10 @@ export default {
   data() {
     return {
       formProps: [{ prop: "email" }, { prop: "password" }],
+      credentials: {
+        email: '',
+        password: ''
+      }
     };
   },
 };
