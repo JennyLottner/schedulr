@@ -2,7 +2,7 @@
   <section class="login-section">
     <LoginHeader />
     <main class="flex column">
-      <div class="reg-login-wrapper flex column">
+      <div class="reg-login-wrapper flex column align-center">
         <h1><span>Log</span> In</h1>
         <div
           v-for="prop in formProps"
@@ -59,6 +59,7 @@
         />
         <span>Google</span>
       </button>
+      <span class="page-separator"></span>
       <div class="no-account flex column align-center">
         <p>
           Don't have an account yet?
@@ -66,7 +67,9 @@
         </p>
         <p>
           Can't log in?
-          <RouterLink to="/help-center" class="help-center-page-link">Visit our help center</RouterLink>
+          <RouterLink to="/help-center" class="help-center-page-link"
+            >Visit our help center</RouterLink
+          >
         </p>
       </div>
     </main>
@@ -188,6 +191,7 @@ export default {
       padding: 12px 16px;
       border: 1px solid #c5c7d0;
       background-color: transparent;
+      margin-block-end: 24px;
 
       img {
         margin-inline-end: 8px;
@@ -201,10 +205,18 @@ export default {
 
     .no-account {
       padding-block-end: 40px;
-      
-      .signup-page-link, .help-center-page-link {
+
+      .signup-page-link,
+      .help-center-page-link {
         color: #0fa2e2;
       }
+    }
+
+    .page-separator {
+      max-width: 540px;
+      height: 0;
+      border: 0.1px solid #eee;
+      margin: 1rem;
     }
   }
 }
