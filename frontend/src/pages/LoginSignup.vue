@@ -7,9 +7,11 @@
         <div
           v-for="prop in formProps"
           :key="prop.prop"
-          class="prop-wrapper flex"
+          class="prop-wrapper flex align-center"
         >
-          <label v-bind:for="prop.prop">{{ prop.prop }}</label>
+          <label v-bind:for="prop.prop" v-bind:class="prop.prop + 'label'">{{
+            prop.prop
+          }}</label>
           <input
             v-bind:type="prop.prop"
             v-bind:id="prop.prop"
@@ -111,7 +113,7 @@ export default {
         align-self: self-start;
 
         label {
-          margin-inline-end: 12px;
+          position: relative;
           color: #777;
           text-transform: capitalize;
           display: none;
@@ -153,10 +155,12 @@ export default {
 
       .login-btn {
         background-color: #0073ea;
+        width: 360px;
         color: #fff;
         height: 48px;
         border-radius: 5px;
         margin-block-end: 32px;
+        align-self: stretch;
 
         span {
           font-size: 18px;
@@ -217,6 +221,55 @@ export default {
       height: 0;
       border: 0.1px solid #eee;
       margin: 1rem;
+    }
+  }
+}
+
+@media (min-width: 521px) {
+  .login-section {
+    main {
+      .reg-login-wrapper {
+        padding-inline: 0;
+
+        .prop-wrapper {
+          gap: 8px;
+
+          &:last-of-type {
+            position: relative;
+            left: -31px;
+          }
+
+          label {
+            display: inline;
+          }
+
+          input.with-placeholder {
+            display: none;
+          }
+
+          input.no-placeholder {
+            display: inline-block;
+          }
+        }
+      }
+
+      .forgot-password-btn,
+      .login-btn {
+        margin-inline-start: 45px;
+      }
+    }
+  }
+}
+
+@media (min-width: 572px) {
+  .login-section {
+    main {
+      .page-separator {
+        position: relative;
+        left: 50%;
+        right: 50%;
+        transform: translateX(-50%);
+      }
     }
   }
 }
