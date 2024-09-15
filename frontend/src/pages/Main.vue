@@ -25,7 +25,6 @@ export default {
   width: 100%;
   overflow-y: hidden;
   background-color: $green-background;
-
   grid-template-columns: 1fr 5fr;
   grid-template-rows: 2.7rem 1fr;
   column-gap: 0.625rem;
