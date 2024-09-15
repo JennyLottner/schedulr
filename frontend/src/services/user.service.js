@@ -1,4 +1,3 @@
-import { dbService } from "./db.service"
 import { storageService } from "./storage.service"
 
 const BASE_URL = 'auth/'
@@ -8,7 +7,8 @@ const STORAGE_KEY_LOGGEDIN = 'loggedInUser'
 export const userService = {
     login,
     signup,
-    logout
+    logout,
+    getById
 }
 
 async function login({ username, password }) {
