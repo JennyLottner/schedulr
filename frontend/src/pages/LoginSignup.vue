@@ -97,6 +97,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../style/setup/functions';
+
 .login-section {
   main {
     .reg-login-wrapper {
@@ -104,7 +106,7 @@ export default {
       padding: 40px 40px 0 40px;
 
       h1 {
-        font-size: 40px;
+        font-size: em(40px);
         font-weight: 200;
         color: #333;
         text-align: center;
@@ -115,7 +117,7 @@ export default {
       }
 
       .prop-wrapper {
-        margin-block-end: 20px;
+        margin-block-end: em(20px);
         align-self: self-start;
 
         label {
@@ -127,11 +129,11 @@ export default {
 
         input {
           padding: 6px 12px;
-          width: 360px;
-          height: 40px;
-          border-radius: 4px;
+          width: em(360px);
+          height: em(40px);
+          border-radius: em(4px);
           border: 1px solid #ccc;
-          font-size: 16px;
+          font-size: 1em;
           color: #555;
           outline: none;
           justify-self: flex-start;
@@ -163,7 +165,7 @@ export default {
         background-color: #0073ea;
         width: 360px;
         color: #fff;
-        height: 48px;
+        height: em(48px);
         border-radius: 5px;
         margin-block-end: 32px;
         align-self: stretch;
