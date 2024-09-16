@@ -74,6 +74,6 @@ function _validateCredentials(credentials) {
 
 function _initializeUsers() {
     const usersToSave = [...users]
-    usersToSave.forEach(user => delete usersToSave[user].password)
+    usersToSave.forEach(user => delete user.password)
     storageService.saveToStorage(USERS_KEY, usersToSave)
 }
