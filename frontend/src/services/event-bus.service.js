@@ -4,7 +4,7 @@ function createEventEmitter() {
     window.mapmap = listenersMap
     return {
         // Use this function to subscribe to an event
-        on(evName, listener){
+        on(evName, listener) {
             listenersMap[evName] = (listenersMap[evName])? [...listenersMap[evName], listener] : [listener]
             return ()=>{
                 listenersMap[evName] = listenersMap[evName].filter(func => func !== listener)
@@ -31,6 +31,4 @@ export function showSuccessMsg(txt) {
 export function showErrorMsg(txt) {
     showUserMsg({txt, type: 'error'})
 }
-
-
 
