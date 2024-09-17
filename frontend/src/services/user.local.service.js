@@ -38,8 +38,7 @@ function signup(credentials) {
     const usersToUpdate = [...users, user]
     _updateUsers(usersToUpdate)
     login(credentials)
-    delete user.password
-    storageService.saveToStorage(USER_KEY, user)
+    return user
 }
 
 function login(credentials) {
@@ -47,8 +46,7 @@ function login(credentials) {
     const users = _getUsers()
     const user = users.find(user => user.password === credentials.password && user.username === credentials.username)
     if (user) {
-        delete user.password
-        storageService.saveToStorage(USER_KEY, user)
+        _connectUserToStorage(user)
         return user
     }
     return new Error('No user found')
@@ -76,4 +74,10 @@ function _initializeUsers() {
     const usersToSave = [...users]
     usersToSave.forEach(user => delete user.password)
     storageService.saveToStorage(USERS_KEY, usersToSave)
+}
+
+function _connectUserToStorage(user) {
+    const userToSave = { ...user }
+    delete userToSave.password
+    storageService.saveToStorage(USER_KEY, userToSave)
 }
