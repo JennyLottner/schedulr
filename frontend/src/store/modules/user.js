@@ -1,5 +1,7 @@
 // import userService from '../services/userService.js'
 
+import { userService } from "@/services/user.local.service"
+
 export default {
     state: {
         user: null
@@ -10,16 +12,18 @@ export default {
         }
     },
     mutations: {
-        setUser(state, {user}) {
+        setUser(state, { user }) {
             state.user = user
         }
     },
     actions: {
-        async setUser({commit}, {user}) {
+        async login({ commit }, { credentials }) {
             try {
-                // await userService.setUser(user) //to change db
-                commit('setUser', user) // to change store
-            } catch (err) { console.log(err)}
-        }
+                const user = await userService.login(credentials)
+                commit('setUser', user)
+            } catch (err) {
+                console.log(err)
+            }
+        },
     },
 }
