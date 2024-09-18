@@ -21,6 +21,10 @@ export default {
             const user = userService.login(credentials)
             commit('setUser', user)
         },
+        signup({ commit }, { credentials }) {
+            const user = userService.signup(credentials)
+            commit('setUser', user)
+        },
         logout({ commit }) {
             userService.logout()
             commit('setUser', null)
