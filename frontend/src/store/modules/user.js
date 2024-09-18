@@ -16,14 +16,10 @@ export default {
             state.user = user
         }
     },
-    actions: {
-        async login({ commit }, { credentials }) {
-            try {
-                const user = await userService.login(credentials)
-                commit('setUser', user)
-            } catch (err) {
-                console.log(err)
-            }
+    actions: { //Make async when moving to service that works w backend and database
+        login({ commit }, { credentials }) {
+            const user = userService.login(credentials)
+            commit('setUser', user)
         },
         logout({ commit }) {
             userService.logout()
