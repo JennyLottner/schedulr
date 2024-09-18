@@ -25,5 +25,9 @@ export default {
                 console.log(err)
             }
         },
+        logout({ commit }) {
+            userService.logout()
+            commit('setUser', null)
+        }
     },
 }
