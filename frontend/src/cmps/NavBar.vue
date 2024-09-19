@@ -46,7 +46,6 @@ nav {
   background-color: $green-nav-background;
   font-family: Figtree, Roboto;
   font-size: 0.875rem;
-
   gap: 0.2rem;
 
   a, .team-btn {
