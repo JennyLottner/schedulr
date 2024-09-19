@@ -6,16 +6,19 @@ const USER_KEY = 'user_db'
 let users = [
     {
         username: 'jenny',
+        email: 'jenny@gmail.com',
         password: 'manoon',
         activities: []
     },
     {
         username: 'shoval',
+        email: 'shoval@gmail.com',
         password: 'manoon',
         activities: []
     },
     {
         username: 'guest',
+        email: 'guest@gmail.com',
         password: 'guest',
         activities: []
     }
