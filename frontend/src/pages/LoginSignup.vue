@@ -95,6 +95,7 @@ export default {
   methods: {
     onLoginBtn() { //change to async when moving to work w a database
       this.$store.dispatch({ type: 'login', credentials: this.credentials })
+      this.$router.push('/')
     }
   }
 };
