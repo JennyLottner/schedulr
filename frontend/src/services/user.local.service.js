@@ -53,7 +53,11 @@ function login(credentials) {
         _connectUserToStorage(user)
         return user
     }
-    return new Error('No user found')
+    else {
+        console.log('No user found')    
+        return new Error('No user found')
+    }
+
 }
 
 function logout() {
@@ -70,8 +74,8 @@ function _updateUsers(usersToUpdate) {
 
 function _validateCredentials(credentials) {
     const users = _getUsers()
-    const doesUserExist = users.find(user => user.username === credentials.username)
-    return !doesUserExist && credentials.username.length > 1 & credentials.password.length > 4
+    const doesUserExist = users.find(user => user.email === credentials.email)
+    return !doesUserExist && credentials.email.length > 1 & credentials.password.length > 4
 }
 
 function _initializeUsers() {
