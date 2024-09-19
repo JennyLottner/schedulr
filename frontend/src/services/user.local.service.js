@@ -35,7 +35,8 @@ function signup(credentials) {
     if (!_validateCredentials(credentials)) return new Error('Something is wrong with the credentials you provided')
     const user = {
         username: credentials.username,
-        password: credentials.password
+        password: credentials.password,
+        email: credentials.email
     }
     const users = _getUsers()
     const usersToUpdate = [...users, user]
@@ -47,7 +48,7 @@ function signup(credentials) {
 function login(credentials) {
     if (!storageService.loadFromStorage(USERS_KEY)) _initializeUsers()
     const users = _getUsers()
-    const user = users.find(user => user.password === credentials.password && user.username === credentials.username)
+    const user = users.find(user => user.password === credentials.password && user.email === credentials.email)
     if (user) {
         _connectUserToStorage(user)
         return user
