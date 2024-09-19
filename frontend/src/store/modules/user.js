@@ -30,4 +30,9 @@ export default {
             commit('setUser', null)
         }
     },
+    getters: {
+        user(state) {
+            return state.user
+        }
+    }
 }
