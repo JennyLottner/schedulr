@@ -27,7 +27,7 @@
           />
         </div>
         <button class="forgot-password-btn">Forgot your password?</button>
-        <button class="login-btn flex center">
+        <button class="login-btn flex center" @click="onLoginBtn()">
           <span>Log in</span>
           <span class="svg-container">
             <svg
@@ -93,6 +93,11 @@ export default {
       }
     };
   },
+  methods: {
+    onLoginBtn() { //change to async when moving to work w a database
+      this.$store.dispatch({ type: 'login', credentials })
+    }
+  }
 };
 </script>
 
