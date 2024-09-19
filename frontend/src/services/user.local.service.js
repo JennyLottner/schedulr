@@ -8,17 +8,20 @@ let users = [
         username: 'jenny',
         email: 'jenny@gmail.com',
         password: 'manoon',
+        imgUrl: '../assets/profile-pics/jenny.png',
         activities: []
     },
     {
         username: 'shoval',
         email: 'shoval@gmail.com',
+        imgUrl: '../assets/profile-pics/shoval.png',
         password: 'manoon',
         activities: []
     },
     {
         username: 'guest',
         email: 'guest@gmail.com',
+        imgUrl: '../assets/profile-pics/guest.png',
         password: 'guest',
         activities: []
     }
