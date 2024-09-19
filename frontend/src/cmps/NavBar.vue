@@ -16,7 +16,7 @@
     </div>
     <Accordion :accordionTitle="'My Team'" class="accordion-container">
       <div class="accordion-contents flex column">
-        <RouterLink>Monday</RouterLink>
+        <RouterLink to="">Main</RouterLink>
         <RouterLink>Sprints</RouterLink>
         <RouterLink>Epics</RouterLink>
         <RouterLink>Bug Queue</RouterLink>
