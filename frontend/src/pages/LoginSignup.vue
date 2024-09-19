@@ -15,13 +15,12 @@
           <input
             v-bind:type="prop.prop"
             v-bind:id="prop.prop"
-            v-model="credentials[prop]"
+            v-model="credentials[prop.prop]"
             class="no-placeholder input"
           />
           <input
             v-bind:type="prop.prop"
-            v-bind:id="prop.prop"
-            v-model="credentials[prop]"
+            v-model="credentials[prop.prop]"
             class="with-placeholder input"
             v-bind:placeholder="prop.prop"
           />
@@ -95,7 +94,7 @@ export default {
   },
   methods: {
     onLoginBtn() { //change to async when moving to work w a database
-      this.$store.dispatch({ type: 'login', credentials })
+      this.$store.dispatch({ type: 'login', credentials: this.credentials })
     }
   }
 };
