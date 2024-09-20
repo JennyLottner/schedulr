@@ -1,20 +1,56 @@
 <template>
-  <section class="home-page">
-    <h1>home</h1>
+  <section class="main-board">
+    <header>
+      <div class="name-and-options">
+        <button class="title-and-arrow flex center">
+          <h1>Main</h1>
+          <span class="arrow">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="24" height="24">
+              <path
+                d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </header>
   </section>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped lang="scss">
-.home-page {
+@import "../../style/setup/vars";
+
+.main-board {
   height: 100%;
-  padding: 0.75rem;
+  padding: 18px 30px 0 38px;
   border-radius: 0.5rem 0 0 0;
   background-color: white;
+
+  .name-and-options {
+    .title-and-arrow {
+      padding: 1px 4px;
+      background-color: transparent;
+      height: fit-content;
+      gap: 4px;
+      border-radius: 4px;
+
+      h1 {
+        font-size: 24px;
+        font-family: Poppins, Roboto;
+        font-weight: 500;
+      }
+
+      &:hover {
+        background-color: $primary-background-hover-color;
+      }
+    }
+  }
 }
 </style>
