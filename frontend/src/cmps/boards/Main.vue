@@ -38,6 +38,8 @@
             v-for="pref in visibilityPrefs"
             :key="pref"
             class="pref-item flex center"
+            v-bind:class="selectedPref === pref ? 'selected' : ''"
+            @click="setPref(pref)"
           >
             <span v-if="pref === 'All Sprints'" class="all-sprints-icon">
               <svg
@@ -90,7 +92,13 @@ export default {
   data() {
     return {
       visibilityPrefs: ["All Sprints", "Main Table", "Kanban", "Active Sprint"],
+      selectedPref: null,
     };
+  },
+  methods: {
+    setPref(pref) {
+      this.selectedPref = pref;
+    },
   },
 };
 </script>
@@ -158,6 +166,13 @@ export default {
             .more {
               display: inline;
             }
+          }
+
+          &.selected {
+            border-bottom: 2px solid $green-dark;
+            border-end-start-radius: 0px;
+            border-end-end-radius: 0px;
+            margin-block-end: -1px;
           }
 
           p {
