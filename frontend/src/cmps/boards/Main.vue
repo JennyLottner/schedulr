@@ -83,7 +83,7 @@
 </template>
 
 <script>
-import Divider from '../helpers/Divider.vue';
+import Divider from "../helpers/Divider.vue";
 
 export default {
   components: { Divider },
@@ -140,6 +140,8 @@ export default {
         li {
           cursor: pointer;
           padding: 4px 20px;
+          gap: 8px;
+          height: 30px;
 
           .all-sprints-icon {
             margin-inline-end: 4px;
@@ -150,7 +152,6 @@ export default {
           }
 
           &:hover {
-            gap: 8px;
             background-color: $primary-background-hover-color;
             border-radius: $border-radius-xs;
 
