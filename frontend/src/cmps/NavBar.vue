@@ -63,7 +63,6 @@ nav {
 
   .divider {
     height: 1px;
-    padding: 1px;
     background-color: $app-gray;
   }
 
