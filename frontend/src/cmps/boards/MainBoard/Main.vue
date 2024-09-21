@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import Divider from "../helpers/Divider.vue";
+import Divider from "../../../helpers/Divider.vue";
 
 export default {
   components: { Divider },
