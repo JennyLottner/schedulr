@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import Divider from "../../../helpers/Divider.vue";
+import Divider from "../../helpers/Divider.vue";
 
 export default {
   components: { Divider },
@@ -104,7 +104,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../style/setup/vars";
+@import "../../../style/setup/vars";
 
 .main-board {
   height: 100%;
