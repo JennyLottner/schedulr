@@ -60,7 +60,6 @@ function login(credentials) {
         console.log('No user found')    
         return new Error('No user found')
     }
-
 }
 
 function logout() {
@@ -82,7 +81,7 @@ function _validateCredentials(credentials) {
 }
 
 function _initializeUsers() {
-    const usersToSave = [...users]
+    const usersToSave = [ ...users ]
     usersToSave.forEach(user => delete user.password)
     storageService.saveToStorage(USERS_KEY, usersToSave)
 }
