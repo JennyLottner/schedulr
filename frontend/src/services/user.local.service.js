@@ -6,9 +6,9 @@ const USER_KEY = 'user_db'
 let users = [
     {
         username: 'jenny',
-        email: 'jenny@gmail.com',
-        password: 'manoon',
+        email: 'jenny@gmail.com',        
         imgUrl: '../assets/profile-pics/jenny.png',
+        password: 'manoon',
         activities: []
     },
     {
