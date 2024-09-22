@@ -30,7 +30,8 @@ let users = [
 export const userService = {
     login,
     signup,
-    logout
+    logout,
+    getUser
 }
 
 function signup(credentials) {
@@ -66,8 +67,8 @@ function logout() {
     storageService.removeFromStorage(USER_KEY)
 }
 
-function _getUsers() {
-    return users
+function getUser() {
+    return storageService.loadFromStorage(USER_KEY)
 }
 
 function _updateUsers(usersToUpdate) {
