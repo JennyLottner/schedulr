@@ -115,7 +115,7 @@ export default {
         font-weight: 200;
         color: #333;
         text-align: center;
-
+        margin-block-end: rem(61px);
         span {
           font-weight: bold;
         }
