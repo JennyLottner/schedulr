@@ -42,7 +42,6 @@ function signup(credentials) {
         password: credentials.password,
         email: credentials.email
     }
-    const users = _getUsers()
     const usersToUpdate = [...users, user]
     _updateUsers(usersToUpdate)
     login(credentials)
@@ -51,7 +50,6 @@ function signup(credentials) {
 
 function login(credentials) {
     if (!storageService.loadFromStorage(USERS_KEY)) _initializeUsers()
-    const users = _getUsers()
     const user = users.find(user => user.password === credentials.password && user.email === credentials.email)
     if (user) {
         _connectUserToStorage(user)
