@@ -74,13 +74,12 @@ function _updateUsers(usersToUpdate) {
 }
 
 function _validateCredentials(credentials) {
-    const users = _getUsers()
     const doesUserExist = users.find(user => user.email === credentials.email)
     return !doesUserExist && credentials.email.length > 1 & credentials.password.length > 4
 }
 
 function _initializeUsers() {
-    const usersToSave = users.slice()
+    const usersToSave = users.map(user => ({ ...user }))
     usersToSave.forEach(user => delete user.password)
     storageService.saveToStorage(USERS_KEY, usersToSave)
 }
