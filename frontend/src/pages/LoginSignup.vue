@@ -25,6 +25,9 @@
             v-bind:placeholder="prop.prop"
           />
         </div>
+        <button class="guest-login-btn" @click="onLoginBtn(true)">
+          Continue as Guest
+        </button>
         <button class="forgot-password-btn">Forgot your password?</button>
         <button class="login-btn flex center" @click="onLoginBtn()">
           <span>Log in</span>
@@ -87,22 +90,27 @@ export default {
     return {
       formProps: [{ prop: "email" }, { prop: "password" }],
       credentials: {
-        email: '',
-        password: ''
-      }
+        email: "",
+        password: "",
+      },
     };
   },
   methods: {
-    onLoginBtn() { //change to async when moving to work w a database
-      this.$store.dispatch({ type: 'login', credentials: this.credentials })
-      this.$router.push('/')
-    }
-  }
+    onLoginBtn(isGuest = false) {
+      //change to async when moving to work w a database
+      if (isGuest) {
+        this.credentials.email = "guest@gmail.com";
+        this.credentials.password = "guest";
+      }
+      this.$store.dispatch({ type: "login", credentials: this.credentials });
+      this.$router.push("/");
+    },
+  },
 };
 </script>
 
 <style lang="scss">
-@import '../style/setup/functions';
+@import "../style/setup/functions";
 
 .login-section {
   main {
@@ -158,7 +166,8 @@ export default {
         }
       }
 
-      .forgot-password-btn {
+      .forgot-password-btn,
+      .guest-login-btn {
         background-color: transparent;
         color: #1f76c2;
         align-self: flex-start;
@@ -267,7 +276,8 @@ export default {
       }
 
       .forgot-password-btn,
-      .login-btn {
+      .login-btn,
+      .guest-login-btn {
         margin-inline-start: 45px;
       }
     }
