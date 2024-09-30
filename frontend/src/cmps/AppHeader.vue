@@ -326,6 +326,10 @@ export default {
       transform: translateX(7px) translateY(2px);
       border-radius: 50%;
 
+      img {
+        object-fit: cover;
+      }
+
       svg,
       img {
         width: 32px;
