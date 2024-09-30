@@ -315,7 +315,6 @@ export default {
     border-radius: 0.25rem 1.25rem 1.25rem 0.25rem;
     background-color: $green-nav-background;
     margin-inline-start: 0.25rem;
-
     justify-content: start;
 
     .logo {
