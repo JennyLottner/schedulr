@@ -126,6 +126,10 @@ nav {
     .add-btn {
       height: 2rem;
       width: 2rem;
+
+      &:hover {
+        background-color: #cce5ff;
+      }
     }
   }
 }
