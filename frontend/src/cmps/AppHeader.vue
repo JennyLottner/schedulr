@@ -2,7 +2,7 @@
   <header class="app-header flex align-center space-between">
     
     <section class="logo-section flex align-center">
-      <svg viewBox="0 0 47 32" fill="currentColor" width="25" height="25" aria-hidden="true" class="icon_89f9330058" data-testid="topbar-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.3242 4.66502C17.3242 2.0886 19.4128 0 21.9892 0C30.6704 0 37.7049 7.03448 37.7049 15.7157C37.7049 24.3969 30.6704 31.4314 21.9892 31.4314H4.66502C2.0886 31.4314 0 29.3428 0 26.7664C0 24.19 2.0886 22.1014 4.66502 22.1014H21.9892C25.5176 22.1014 28.3749 19.2441 28.3749 15.7157C28.3749 12.1873 25.5176 9.33005 21.9892 9.33005C19.4128 9.33005 17.3242 7.24145 17.3242 4.66502Z" fill="url(#paint0_linear_2766_276158)"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M22.2457 0C13.5645 0 6.53003 7.03448 6.53003 15.7157C6.53003 24.3969 13.5645 31.4314 22.2457 31.4314H41.2991C41.6984 31.4454 42.1086 31.3079 42.441 30.9774L45.5369 27.8986C46.1589 27.28 46.1589 26.2735 45.5369 25.6549L42.441 22.5762C42.1353 22.2722 41.7236 22.1014 41.3955 22.1052L41.2627 22.1014H22.2457C18.7174 22.1014 15.8601 19.2441 15.8601 15.7157C15.8601 12.1873 18.7174 9.33005 22.2457 9.33005C24.8222 9.33005 26.9108 7.24145 26.9108 4.66502C26.9108 2.0886 24.8222 0 22.2457 0Z" fill="#00CA72"></path><defs> <linearGradient id="paint0_linear_2766_276158" x1="28.5869" y1="10.5269" x2="25.7865" y2="23.5486" gradientUnits="userSpaceOnUse"><stop stop-color="#00CA72"></stop><stop offset="0.905957" stop-color="#00CA72" stop-opacity="0.6"></stop></linearGradient></defs></svg>
+      <img src="../../public/schedulr-logo.png" alt="logo">
       <p><span>schedulr</span> work management</p>
     </section>
 
@@ -23,8 +23,8 @@
       <button title="Help" class="help-btn">?</button>
 
       <button class="user-btn">
-        <img class="logo" src="https://cdn.monday.com/images/logos/monday_logo_icon.png"/>
-
+        <img class="logo" src="../../public/schedulr-logo.png" alt="logo">
+        
         <div class="user-img">
           <img v-if="user" :src="user.imgUrl" alt="user's profile image" />
           <svg v-else xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve"><defs></defs><g style="  stroke: none;  stroke-width: 0;  stroke-dasharray: none;  stroke-linecap: butt;  stroke-linejoin: miter;  stroke-miterlimit: 10;  fill: none;  fill-rule: nonzero;  opacity: 1; " transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"> <path d="M 45 88 c -11.049 0 -21.18 -2.003 -29.021 -8.634 C 6.212 71.105 0 58.764 0 45 C 0 20.187 20.187 0 45 0 c 24.813 0 45 20.187 45 45 c 0 13.765 -6.212 26.105 -15.979 34.366 C 66.181 85.998 56.049 88 45 88 z" style="  stroke: none;  stroke-width: 1;  stroke-dasharray: none;  stroke-linecap: butt;  stroke-linejoin: miter;  stroke-miterlimit: 10;  fill: rgb(214, 214, 214);  fill-rule: nonzero;  opacity: 1;  " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/> <path d="M 45 60.71 c -11.479 0 -20.818 -9.339 -20.818 -20.817 c 0 -11.479 9.339 -20.818 20.818 -20.818 c 11.479 0 20.817 9.339 20.817 20.818 C 65.817 51.371 56.479 60.71 45 60.71 z" style="   stroke: none;   stroke-width: 1;   stroke-dasharray: none;   stroke-linecap: butt;   stroke-linejoin: miter;   stroke-miterlimit: 10;   fill: rgb(165, 164, 164);   fill-rule: nonzero;   opacity: 1; " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/> <path d="M 45 90 c -10.613 0 -20.922 -3.773 -29.028 -10.625 c -0.648 -0.548 -0.88 -1.444 -0.579 -2.237 C 20.034 64.919 31.933 56.71 45 56.71 s 24.966 8.209 29.607 20.428 c 0.301 0.793 0.069 1.689 -0.579 2.237 C 65.922 86.227 55.613 90 45 90 z" style="   stroke: none;   stroke-width: 1;   stroke-dasharray: none;   stroke-linecap: butt;   stroke-linejoin: miter;   stroke-miterlimit: 10;   fill: rgb(165, 164, 164);   fill-rule: nonzero;   opacity: 1; " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /></g></svg>
@@ -50,7 +50,7 @@ export default {
 @import "../style/basics/helpers";
 
 .app-header {
-  padding-inline: 0.5rem 1.5rem;
+  padding-inline: 1.5rem;
   background-color: transparent;
 
   button {
@@ -59,6 +59,11 @@ export default {
 
   .logo-section {
     gap: 0.5rem;
+
+    img {
+      max-width: 1rem;
+      max-height: 1.5rem;
+    }
 
     p {
       font-weight: lighter;
@@ -87,16 +92,15 @@ export default {
 
   .user-btn {
     height: 2rem;
-    width: 3.5rem;
+    width: 3rem;
     border-radius: 0.25rem;
     background-color: $green-nav-background;
     margin-inline-start: 0.25rem;
-    padding-inline-start: 0.25rem;
-    justify-content: start;
+    padding-inline-start: 1rem;
 
     .logo {
-      width: 1.5rem;
-      height: 1.5rem;
+      max-width: 1rem;
+      max-height: 1.2rem;
     }
 
     .user-img {
