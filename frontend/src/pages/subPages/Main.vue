@@ -33,8 +33,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../../style/setup/vars";
-@import "../../../style/basics/helpers";
+@import "../../style/setup/vars";
+@import "../../style/basics/helpers";
 
 .main-page {
   height: 100%;
