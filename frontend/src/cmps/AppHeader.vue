@@ -2,7 +2,7 @@
   <header class="app-header flex align-center space-between">
     
     <section class="logo-section flex align-center">
-      <img src="../../public/schedulr-logo.png" alt="logo">
+      <img src="../assets/pics/schedulr-logo.png" alt="logo">
       <p><span>schedulr</span> work management</p>
     </section>
 
@@ -23,7 +23,7 @@
       <button title="Help" class="help-btn">?</button>
 
       <button class="user-btn">
-        <img class="logo" src="../../public/schedulr-logo.png" alt="logo">
+        <img class="logo" src="../assets/pics/schedulr-logo.png" alt="logo">
         
         <div class="user-img">
           <img v-if="user" :src="user.imgUrl" alt="user's profile image" />
