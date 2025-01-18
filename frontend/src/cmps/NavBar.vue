@@ -150,9 +150,9 @@ export default {};
 @import "../style/setup/typography";
 
 nav {
-  // padding: 0.25rem 0.75rem;
+  padding: 0.25rem 0.75rem;
   padding-block: 0.25rem;
-  background-color: $green-nav-background;
+  background-color: $nav-background;
   font-family: Figtree, Roboto;
   font-size: 0.875rem;
   gap: 0.2rem;
@@ -170,7 +170,7 @@ nav {
 
   a {
     &:hover {
-      background-color: #ebeded;
+      background-color: $blue-btn-hover;
     }
 
     &.selected {
