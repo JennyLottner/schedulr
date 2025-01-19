@@ -94,7 +94,7 @@ export default {
     height: 2rem;
     width: 3rem;
     border-radius: 0.25rem;
-    background-color: $green-nav-background;
+    background-color: $nav-background;
     margin-inline-start: 0.25rem;
     padding-inline-start: 1rem;
 
