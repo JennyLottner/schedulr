@@ -1,6 +1,8 @@
 var board = {
+    id: 1,
     title: '',
     isFavorite: false,
+    members: [],
     groups: [
         {
             groupTitle: '',
