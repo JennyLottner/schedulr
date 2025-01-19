@@ -1,6 +1,6 @@
 // import userService from '../services/userService.js'
 
-import { userService } from "@/services/user.local.service"
+import { userService } from "@/services/user/user.local.service"
 
 export default {
     state: {
