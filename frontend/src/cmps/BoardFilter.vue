@@ -137,12 +137,13 @@ export default {
   },
   methods: {
     onSelect(val) {  // handle selecting a filter type
-        this.selected = val
+      if (val === this.selected) this.selected = ''
+      else this.selected = val
     },
     handleOutsideClick(event) {  // handle resetting filter type
-      if (!event.target.closest('.filter-section button')) {
-        this.selected = ''
-      }
+      if (
+        !event.target.closest('.filter-section button') && !event.target.closest('.modal')
+      ) { this.selected = '' }
     },
   },
   computed: {        // handle class for selected styling
