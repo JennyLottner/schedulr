@@ -1,6 +1,6 @@
 <template>
   <nav class="flex column">
-    <RouterLink to="/">
+    <RouterLink to="/home" :class="isSelected('/home')">
       <div class="tab-container flex align-center">
         <svg
           viewBox="0 0 20 20"
@@ -22,7 +22,7 @@
       </div>
     </RouterLink>
 
-    <RouterLink>
+    <RouterLink :class="isSelected('/work')">
       <div class="tab-container flex align-center">
         <svg
           viewBox="0 0 20 20"
@@ -48,9 +48,13 @@
 
     <div class="divider"></div>
 
-    <button class="favorites-title tab-container flex align-center">
+    <button
+      class="favorites-title tab-container flex align-center"
+      @click="onFav()"
+    >
       <span>
         <svg
+          v-if="!favorites"
           width="18"
           height="18"
           viewBox="-0.5 0 25 25"
@@ -65,82 +69,153 @@
             stroke-linejoin="round"
           />
         </svg>
+        <svg
+          v-else
+          width="17"
+          height="16"
+          viewBox="0 0 17 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.38651 0.919639L8.72889 1.24523L9.38698 0.920593L11.129 4.45187L15.0309 5.02032C15.2789 5.05775 15.5116 5.16372 15.7026 5.32629C15.8937 5.48886 16.0355 5.70156 16.1121 5.94041C16.1888 6.17927 16.1972 6.43478 16.1364 6.67816C16.0757 6.92112 15.9484 7.14233 15.769 7.31695L15.768 7.31784L12.9482 10.0673L13.6135 13.9517L13.6138 13.9535C13.6571 14.2021 13.6297 14.4578 13.5347 14.6916C13.4394 14.9259 13.2801 15.1287 13.0749 15.2767C12.8698 15.4246 12.6271 15.5118 12.3747 15.5283C12.1238 15.5446 11.8735 15.4904 11.6519 15.3718L8.17876 13.5456L4.69674 15.3773C4.47515 15.4959 4.22475 15.5502 3.97387 15.5338C3.72146 15.5174 3.47877 15.4302 3.27362 15.2823C3.06847 15.1343 2.90914 14.9315 2.81388 14.6972C2.71885 14.4634 2.69143 14.2076 2.73473 13.959L2.73504 13.9573L3.4004 10.0728L0.58498 7.32119L0.58397 7.32021C0.404543 7.1456 0.277339 6.92443 0.216658 6.68151C0.155863 6.43814 0.164258 6.18262 0.240897 5.94377C0.317535 5.70491 0.45937 5.49221 0.650413 5.32964C0.841455 5.16707 1.07411 5.0611 1.32215 5.02367L1.32538 5.02319L5.22851 4.45192L6.97099 0.919639C7.08244 0.694536 7.25457 0.505061 7.46798 0.37259C7.68139 0.240118 7.92757 0.169922 8.17875 0.169922C8.42993 0.169922 8.67611 0.240118 8.88952 0.37259C9.10292 0.505061 9.27506 0.694536 9.38651 0.919639Z"
+            fill="#FFCB00"
+          ></path>
+        </svg>
       </span>
       <p>Favorites</p>
     </button>
 
-    <div class="divider"></div>
+    <section v-if="favorites" class="workplaces flex column">
+      <section class="boards flex column">
+        <RouterLink to="/board" :class="isSelected('/board')">
+          Sample board
+        </RouterLink>
+        <RouterLink to="/board" :class="isSelected('/board/id')">
+          [where all favorite boards show up in list]
+        </RouterLink>
+      </section>
 
-    <div class="workspace-title tab-container flex align-center">
-      <svg
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        width="18"
-        height="18"
-        aria-hidden="true"
-        tabindex="-1"
-        class="icon_a812034417"
-        data-testid="icon"
-      >
-        <path
-          d="M3 2.25C2.58579 2.25 2.25 2.58579 2.25 3V8.38462C2.25 8.79883 2.58579 9.13462 3 9.13462H8.38462C8.79883 9.13462 9.13462 8.79883 9.13462 8.38462V3C9.13462 2.58579 8.79883 2.25 8.38462 2.25H3ZM3.75 7.63462V3.75H7.63462V7.63462H3.75ZM11.6154 2.25C11.2012 2.25 10.8654 2.58579 10.8654 3V8.38462C10.8654 8.79883 11.2012 9.13462 11.6154 9.13462H17C17.4142 9.13462 17.75 8.79883 17.75 8.38462V3C17.75 2.58579 17.4142 2.25 17 2.25H11.6154ZM12.3654 7.63462V3.75H16.25V7.63462H12.3654ZM2.25 11.6154C2.25 11.2012 2.58579 10.8654 3 10.8654H8.38462C8.79883 10.8654 9.13462 11.2012 9.13462 11.6154V17C9.13462 17.4142 8.79883 17.75 8.38462 17.75H3C2.58579 17.75 2.25 17.4142 2.25 17V11.6154ZM3.75 12.3654V16.25H7.63462V12.3654H3.75ZM11.6154 10.8654C11.2012 10.8654 10.8654 11.2012 10.8654 11.6154V17C10.8654 17.4142 11.2012 17.75 11.6154 17.75H17C17.4142 17.75 17.75 17.4142 17.75 17V11.6154C17.75 11.2012 17.4142 10.8654 17 10.8654H11.6154ZM12.3654 16.25V12.3654H16.25V16.25H12.3654Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          class="st-current"
-        ></path>
-      </svg>
-      Workspaces
-    </div>
+      <section class="empty-favorites">
+        <!-- Add if statement for if user.favorites is empty -->
+        <img
+          src="https://microfrontends.monday.com/mf-leftpane/latest/static/media/favorites-empty-.99fa5473.svg"
+          alt="No favorite items image"
+        />
+        <h2>Your favorites are empty</h2>
+        <p>Add your boards for a quick access.</p>
+      </section>
+    </section>
 
-    <div class="search-section flex">
-      <div class="search-bar flex align-center">
+    <section v-else class="workplaces flex column">
+      <div class="divider"></div>
+
+      <div class="workspace-title tab-container flex align-center">
         <svg
           viewBox="0 0 20 20"
           fill="currentColor"
-          width="16px"
-          height="16px"
+          width="18"
+          height="18"
           aria-hidden="true"
-          class="icon_a2927e1dcf icon_82075aab38"
+          tabindex="-1"
+          class="icon_a812034417"
           data-testid="icon"
         >
           <path
-            d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+            d="M3 2.25C2.58579 2.25 2.25 2.58579 2.25 3V8.38462C2.25 8.79883 2.58579 9.13462 3 9.13462H8.38462C8.79883 9.13462 9.13462 8.79883 9.13462 8.38462V3C9.13462 2.58579 8.79883 2.25 8.38462 2.25H3ZM3.75 7.63462V3.75H7.63462V7.63462H3.75ZM11.6154 2.25C11.2012 2.25 10.8654 2.58579 10.8654 3V8.38462C10.8654 8.79883 11.2012 9.13462 11.6154 9.13462H17C17.4142 9.13462 17.75 8.79883 17.75 8.38462V3C17.75 2.58579 17.4142 2.25 17 2.25H11.6154ZM12.3654 7.63462V3.75H16.25V7.63462H12.3654ZM2.25 11.6154C2.25 11.2012 2.58579 10.8654 3 10.8654H8.38462C8.79883 10.8654 9.13462 11.2012 9.13462 11.6154V17C9.13462 17.4142 8.79883 17.75 8.38462 17.75H3C2.58579 17.75 2.25 17.4142 2.25 17V11.6154ZM3.75 12.3654V16.25H7.63462V12.3654H3.75ZM11.6154 10.8654C11.2012 10.8654 10.8654 11.2012 10.8654 11.6154V17C10.8654 17.4142 11.2012 17.75 11.6154 17.75H17C17.4142 17.75 17.75 17.4142 17.75 17V11.6154C17.75 11.2012 17.4142 10.8654 17 10.8654H11.6154ZM12.3654 16.25V12.3654H16.25V16.25H12.3654Z"
             fill="currentColor"
             fill-rule="evenodd"
             clip-rule="evenodd"
+            class="st-current"
           ></path>
         </svg>
-        <input type="text" placeholder="Search" />
-        <button title="filters" class="flex center">
+        Workspaces
+      </div>
+
+      <div class="search-section flex">
+        <div class="search-bar flex align-center">
           <svg
             viewBox="0 0 20 20"
             fill="currentColor"
-            width="16"
-            height="16"
-            role="img"
+            width="16px"
+            height="16px"
             aria-hidden="true"
+            class="icon_a2927e1dcf icon_82075aab38"
+            data-testid="icon"
           >
             <path
-              d="M17.8571 2.87669C18.107 3.41157 18.0246 4.04275 17.6457 4.49555L12.4892 10.6589V15.3856C12.4892 16.0185 12.097 16.5852 11.5048 16.8082L9.56669 17.5381C9.09976 17.7139 8.57627 17.6494 8.16598 17.3655C7.75569 17.0816 7.51084 16.6144 7.51084 16.1155V10.6589L2.35425 4.49555C1.97542 4.04275 1.89302 3.41157 2.14291 2.87669C2.39279 2.34182 2.92977 2 3.52013 2H16.4799C17.0702 2 17.6072 2.34182 17.8571 2.87669ZM16.4799 3.52012H3.52013L8.91611 9.96964C8.99036 10.0584 9.03096 10.1698 9.03096 10.2848V16.1155L10.969 15.3856V10.2848C10.969 10.1698 11.0096 10.0584 11.0839 9.96964L16.4799 3.52012Z"
+              d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
               fill="currentColor"
               fill-rule="evenodd"
               clip-rule="evenodd"
             ></path>
           </svg>
-        </button>
+          <input type="text" placeholder="Search" />
+          <button title="filters" class="flex center">
+            <svg
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              width="16"
+              height="16"
+              role="img"
+              aria-hidden="true"
+            >
+              <path
+                d="M17.8571 2.87669C18.107 3.41157 18.0246 4.04275 17.6457 4.49555L12.4892 10.6589V15.3856C12.4892 16.0185 12.097 16.5852 11.5048 16.8082L9.56669 17.5381C9.09976 17.7139 8.57627 17.6494 8.16598 17.3655C7.75569 17.0816 7.51084 16.6144 7.51084 16.1155V10.6589L2.35425 4.49555C1.97542 4.04275 1.89302 3.41157 2.14291 2.87669C2.39279 2.34182 2.92977 2 3.52013 2H16.4799C17.0702 2 17.6072 2.34182 17.8571 2.87669ZM16.4799 3.52012H3.52013L8.91611 9.96964C8.99036 10.0584 9.03096 10.1698 9.03096 10.2848V16.1155L10.969 15.3856V10.2848C10.969 10.1698 11.0096 10.0584 11.0839 9.96964L16.4799 3.52012Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <button title="Add item to workspace" class="add-btn">+</button>
       </div>
-      <button title="Add item to workspace" class="add-btn">+</button>
-    </div>
 
-    <section class="workspaces">
-      <RouterLink> [where all workspaces show up in list] </RouterLink>
+      <section class="boards flex column">
+        <RouterLink to="/board" :class="isSelected('/board')">
+          Sample board
+        </RouterLink>
+        <RouterLink to="/board" :class="isSelected('/board/id')">
+          [where all boards show up in list]
+        </RouterLink>
+      </section>
     </section>
   </nav>
 </template>
 
 <script>
-export default {};
+import { watch, ref } from 'vue';
+import { useRoute } from 'vue-router'
+
+export default {
+  setup() {
+    const route = useRoute()
+    const currPath = ref(route.path)  // Make reactive reference 
+
+    watch(() => route.path, (newPath) => {  // Watch the route and update currPath
+      currPath.value = newPath
+    })
+    return { currPath }
+  },
+  data() {
+    return {
+      favorites: false,
+    }
+  },
+  methods: {
+    onFav() {
+      this.favorites = !this.favorites
+
+      if (this.favorites) console.log(this.favorites) // make display
+    },
+  },
+  computed: {
+    isSelected() {   // handle class for selected styling
+      return (val) => ({ selected: this.currPath === val })
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
@@ -154,6 +229,11 @@ nav {
   font-family: Figtree, Roboto;
   font-size: 0.875rem;
   gap: 0.2rem;
+
+  .workplaces,
+  .favorites {
+    gap: 0.2rem;
+  }
 
   a,
   .workspace-title,
@@ -172,11 +252,11 @@ nav {
     cursor: pointer;
 
     &:hover {
-      background-color: $blue-btn-hover;
+      background-color: $primary-background-hover-color;
     }
 
     &.selected {
-      background-color: #cce5ff;
+      background-color: $primary-selected-color;
     }
   }
 
@@ -190,7 +270,6 @@ nav {
   }
 
   .search-section {
-    // margin-block-end: 0.6rem;
     gap: 0.625rem;
     padding: 0.5rem 0.25rem 0.6rem 0.375rem;
 
