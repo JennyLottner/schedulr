@@ -1,9 +1,9 @@
 <template>
-  <section class="main-page">
+  <section class="board-page">
     <header class="flex column">
       <section class="main-title flex space-between">
         <button class="project-title-btn flex center">
-          <h1>Main</h1>
+          <h1>Board Name Here!!</h1>
         </button>
 
         <button class="more-settings-btn flex align-center">
@@ -79,7 +79,7 @@ export default {
 @import "../../style/setup/vars";
 @import "../../style/basics/helpers";
 
-.main-page {
+.board-page {
   height: 100%;
   padding: 1.125rem 1.875rem 0 2.375rem;
   border-radius: 0.5rem 0 0 0;
