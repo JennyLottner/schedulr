@@ -1,5 +1,5 @@
 <template>
-  <section class="home-page grid">
+  <section class="main-page grid">
     <AppHeader class="app-header"/>
     <NavBar class="nav-bar"/>
     <main>
@@ -20,7 +20,7 @@ export default {
 <style lang="scss">
 @import "../style/setup/vars";
 
-.home-page {
+.main-page {
   height: 100vh;
   width: 100%;
   overflow-y: hidden;
