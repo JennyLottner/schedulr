@@ -62,9 +62,7 @@
         </button>
       </section>
 
-      <section class="filtering-section">
-        <BoardFilter />
-      </section>
+      <BoardFilter />
     </header>
   </section>
 </template>
