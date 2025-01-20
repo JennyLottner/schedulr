@@ -36,7 +36,7 @@
       </button>
     </div>
 
-    <button class="search-btn">
+    <button class="search-btn" :class="isSelected('search')" @click="onSelect('search')">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="#000000"
@@ -53,7 +53,7 @@
       Search
     </button>
 
-    <button class="person-btn" title="Filter board by person">
+    <button class="person-btn" title="Filter board by person" :class="isSelected('person')" @click="onSelect('person')">
       <svg
         viewBox="0 0 20 20"
         fill="currentColor"
@@ -80,7 +80,7 @@
       Person
     </button>
 
-    <button class="filter-btn" title="Filter board by anything">
+    <button class="filter-btn" title="Filter board by anything" :class="isSelected('filter')" @click="onSelect('filter')">
       <svg
         viewBox="0 0 20 20"
         fill="currentColor"
@@ -101,7 +101,7 @@
       Filter
     </button>
 
-    <button class="sort-btn" title="Sort board by any column">
+    <button class="sort-btn" title="Sort board by any column" :class="isSelected('sort')" @click="onSelect('sort')">
       <svg
         viewBox="0 0 20 20"
         fill="currentColor"
@@ -124,7 +124,32 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      selected: '',
+    }
+  },
+  methods: {
+    onSelect(val) {  // handle selecting a filter type
+        this.selected = val
+    },
+    handleOutsideClick(event) {  // handle resetting filter type
+      if (!event.target.closest('.filter-section button')) {
+        this.selected = ''
+      }
+    },
+  },
+  computed: {        // handle class for selected styling
+    isSelected() {
+        return (val) => ({ selected: this.selected === val })
+    },
+  },
+  mounted() {     // Add global click listener
+    document.addEventListener('click', this.handleOutsideClick);
+  },
+  beforeUnmount() {   // Remove global click listener
+    document.removeEventListener('click', this.handleOutsideClick);
+  },
 }
 </script>
 
@@ -144,7 +169,11 @@ export default {
     gap: 0.25rem;
 
     &:hover {
-        background-color: $primary-background-hover-color;
+      background-color: $primary-background-hover-color;
+    }
+
+    &.selected {
+      background-color: $primary-selected-color;
     }
   }
 
