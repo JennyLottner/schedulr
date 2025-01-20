@@ -12,6 +12,7 @@ const defaultBoard = {
     groups: [
         {
             groupTitle: '',
+            id: 1,
             items: [
                 {
                     itemTitle: '',
