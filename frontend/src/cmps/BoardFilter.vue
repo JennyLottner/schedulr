@@ -127,6 +127,12 @@ export default {
   data() {
     return {
       selected: '',
+      filterBy: {
+        txt: '',     // text in searchbar
+        person: '',  // person id
+        filter: '', // what would this one do?
+        sort: { col: '', dir: 1 },    //direction can be 1 or -1
+      },
     }
   },
   methods: {
