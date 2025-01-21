@@ -12,6 +12,7 @@ const defaultBoard = {
     groups: [
         {
             groupTitle: '',
+            id: 1,
             items: [
                 {
                     itemTitle: '',
@@ -31,7 +32,8 @@ export const boardService = {
     changeBoardTitle,
     toggleBoardToUserFavoriteBoards,
     addMemberToBoard,
-    addGroup
+    addGroup,
+    getBoards
 }
 
 const _setUserBoards = () => {
@@ -43,7 +45,7 @@ const _setUserBoards = () => {
 
 const _getUserBoards = () => userBoards
 
-const _getBoards = () => storageService.loadFromStorage(BOARDS_KEY)
+const getBoards = () => storageService.loadFromStorage(BOARDS_KEY)
 
 const saveUpdatedBoards = (boards) => storageService.saveToStorage(BOARDS_KEY, boards)
 
@@ -74,7 +76,7 @@ function toggleBoardToUserFavoriteBoards(id) {
 }
 
 const addMemberToBoard = (boardId, userId) => {
-    const boards = _getBoards()
+    const boards = getBoards()
     const boardsToUpdate = [...boards]
     const chosenBoard = _getBoard(boardId)
     const chosenBoardIdx = boards.findIndex(board => board.id === boardId)
@@ -100,7 +102,7 @@ const _createGroup = () => {
 }
 
 const addGroup = (boardId) => {
-    const boards = _getBoards()
+    const boards = getBoards()
     const board = _getBoard(boardId)
     const chosenBoardIdx = boards.findIndex(board => board.id === boardId)
     const boardsToUpdate = [ ...boards ]
