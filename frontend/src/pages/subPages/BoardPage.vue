@@ -80,10 +80,8 @@ export default {
 @import "../../style/basics/helpers";
 
 .board-page {
-  padding: 1.125rem 1.875rem 0 2.375rem;
-
   header {
-    gap: 0.5rem;
+    padding: 1.125rem 1.875rem 0 2.375rem;
 
     .project-title-btn,
     .more-settings-btn,
@@ -107,7 +105,10 @@ export default {
 
     .secondary-title {
       width: fit-content;
-      padding-inline-end: 0;
+      border-radius: $border-radius-xs $border-radius-xs 0 0;
+      border-block-end: 2px solid $blue-btn;
+      margin-block: 1rem -1px;
+
       cursor: pointer;
 
       .house-icon {
