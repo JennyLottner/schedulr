@@ -72,7 +72,7 @@
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="#000000"
+          fill="#68697a"
           width="15px"
           height="15px"
           viewBox="0 0 32 32"
@@ -260,6 +260,8 @@ export default {
 @import "../style/setup/vars";
 
 .filter-section {
+  padding-block: 1rem;
+  border-block-start: 1px solid $app-gray;
   gap: 1rem;
 
   button:not(.more-btn) {
@@ -297,6 +299,10 @@ export default {
     &.selected {
       background-color: $hovered-blue-btn;
     }
+  }
+
+  svg {
+    color: $svg-color
   }
 
   .btn-modal-container,
