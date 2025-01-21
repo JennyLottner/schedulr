@@ -64,14 +64,17 @@
 
       <BoardFilter />
     </header>
+
+    <GroupCmp />
   </section>
 </template>
 
 <script>
 import BoardFilter from '@/cmps/BoardFilter.vue';
+import GroupCmp from '@/cmps/GroupCmp.vue';
 
 export default {
-  components: { BoardFilter },
+  components: { BoardFilter, GroupCmp },
 }
 </script>
 
