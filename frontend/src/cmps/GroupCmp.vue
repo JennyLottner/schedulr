@@ -11,7 +11,8 @@
             <th>Person</th>
             <th>Status</th>
             <th>Date</th>
-            <th>Label/+</th>
+            <th>Label</th>
+            <th>+</th>
           </tr>
         </thead>
       </table>
@@ -64,6 +65,7 @@
         <td class="status">status</td>
         <td class="date">date</td>
         <td class="label">label</td>
+        <td></td>
       </tr>
       <tr class="add-row group-grid grid">
         <td class="colored"></td>
@@ -80,6 +82,7 @@
         <td class="status"></td>
         <td></td>
         <td class="label"></td>
+        <td></td>
       </tr>
     </table>
   </section>
@@ -111,15 +114,12 @@ export default {}
 
     .group-grid {
       width: 100%;
-      grid-template-columns: 0.375rem 2rem 18.5rem 4.05rem 6.1rem repeat(
-          3,
-          8.1rem
-        );
+      grid-template-columns: 0.375rem 2rem 18.5rem 4.05rem 6.1rem repeat( 3, 8.1rem) 4.05rem;
       grid-auto-rows: 2.25rem;
     }
 
     .add-row {
-      grid-template-columns: 0.375rem 2rem 22.55rem 1fr;
+      grid-template-columns: 0.375rem 2rem 22.55rem 34.45rem;
 
       input {
         width: 80%;
@@ -127,7 +127,7 @@ export default {}
     }
 
     .footer-row {
-      grid-template-columns: 1fr 6.1rem repeat(3, 8.1rem);
+      grid-template-columns: 24.925rem 6.1rem repeat(3, 8.1rem) 4.05rem;
     }
   }
 
@@ -136,7 +136,7 @@ export default {}
       background-color: transparent;
     }
 
-    tr:hover {
+    tr:not(.footer-row):hover {
       background-color: #f4f5f8;
     }
 
