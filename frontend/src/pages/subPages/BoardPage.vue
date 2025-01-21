@@ -80,10 +80,7 @@ export default {
 @import "../../style/basics/helpers";
 
 .board-page {
-  height: 100%;
   padding: 1.125rem 1.875rem 0 2.375rem;
-  border-radius: 0.5rem 0 0 0;
-  background-color: white;
 
   header {
     gap: 0.5rem;
