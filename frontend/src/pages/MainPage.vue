@@ -1,7 +1,7 @@
 <template>
   <section class="main-page grid">
-    <AppHeader class="app-header"/>
-    <NavBar class="nav-bar"/>
+    <AppHeader class="app-header" />
+    <NavBar class="nav-bar" />
     <main>
       <RouterView />
     </main>
@@ -37,10 +37,13 @@ export default {
     grid-area: 2 / 1 / 3 / 2;
     border-radius: 0 0.5rem 0 0;
   }
-  
+
   main {
     grid-area: 2 / 2 / 3 / 3;
     border-radius: 0.5rem 0 0 0;
+    height: 100%;
+    border-radius: 0.5rem 0 0 0;
+    background-color: white;
   }
 }
 </style>

@@ -242,8 +242,8 @@ export default {
       ) { this.selected = '' }
     },
   },
-  computed: {        // handle class for selected styling
-    isSelected() {
+  computed: {
+    isSelected() {   // handle class for selected styling
       return (val) => ({ selected: this.selected === val })
     },
   },
