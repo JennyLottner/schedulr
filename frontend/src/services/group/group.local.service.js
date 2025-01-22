@@ -5,27 +5,6 @@ const userBoards = []
 const BOARDS_KEY = 'boards_db'
 const user = userService.getUser()
 
-// const defaultBoard = {
-//     id: 1,
-//     title: '',
-//     members: [],
-//     groups: [
-//         {
-//             groupTitle: '',
-//             items: [
-//                 {
-//                     itemTitle: '',
-// id: 1
-//                     updates: [],
-//                     people: [],
-//                     status: '',
-//                     date: new Date(),
-//                     labels: [],
-//                 },
-//             ],
-//         },
-//     ],
-// }
 
 function loadUserBoards() {
     const boards = storageService.loadFromStorage(BOARDS_KEY)
