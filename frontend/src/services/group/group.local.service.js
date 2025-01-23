@@ -6,7 +6,7 @@ const BOARDS_KEY = 'boards_db'
 const user = userService.getUser()
 
 
-function loadUserBoards() {
+function _loadUserBoards() {
     const boards = storageService.loadFromStorage(BOARDS_KEY)
     boards.forEach(board => {
         if (user.boards.has(board.id)) userBoards.push(board)
@@ -71,7 +71,7 @@ function addLabelToItem(boardId, groupId, itemId, val) {
     _changeGroupItemField(boardId, groupId, itemId, 'labels', val)
 }
 
-function removeValueFromItem(boardId, groupId, itemId, field, val) {
+function _removeValueFromItem(boardId, groupId, itemId, field, val) {
     if (!(userBoards(boardId => id === boardId))) return console.error('The user has no access to this board')
     const boards = boardService.getBoards()
     const chosenGroupAndGroupIdx = _getBoardGroupAndGroupIdx(boardId, groupId, boards)
