@@ -29,8 +29,25 @@ export default {
             try {
                 const boards = await boardService.query()
                 commit('setBoards', boards)
-            } catch (err) { 
-                console.log('Error in board store:',err)
+            } catch (err) {
+                console.log('Error in board store:', err)
+            }
+        },
+        async removeBoard({ commit }, { boardId }) {
+            try {
+                const boards = await boardService.remove(boardId)
+                commit('removeBoard', boardId)
+            } catch (err) {
+                console.log('Error in board store:', err)
+            }
+        },
+        async saveBoard({ commit }, { updatedBoard }) {
+            try {
+                await boardService.save(updatedBoard)
+                if (updatedBoard._id) commit('updateBoard', updatedBoard)
+                else commit('addBoard', updatedBoard)
+            } catch (err) {
+                console.log('Error in board store:', err)
             }
         },
     },
