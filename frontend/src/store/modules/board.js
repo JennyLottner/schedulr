@@ -25,6 +25,16 @@ export default {
         },
     },
     actions: {
+        async loadBoard({ commit }, { boardId }) {
+            try {
+                commit('setBoard', boardId)
+
+                const board = await boardService.getBoard(boardId)
+                return board
+            } catch (err) {
+                console.log('Error in board store:', err)
+            }
+        },
         async loadBoards({ commit }) {
             try {
                 const boards = await boardService.query()
@@ -35,17 +45,17 @@ export default {
         },
         async removeBoard({ commit }, { boardId }) {
             try {
-                const boards = await boardService.remove(boardId)
+                await boardService.remove(boardId)
                 commit('removeBoard', boardId)
             } catch (err) {
                 console.log('Error in board store:', err)
             }
         },
-        async saveBoard({ commit }, { updatedBoard }) {
+        async saveBoard({ commit }, { editedBoard }) {
             try {
-                await boardService.save(updatedBoard)
-                if (updatedBoard._id) commit('updateBoard', updatedBoard)
-                else commit('addBoard', updatedBoard)
+                await boardService.save(editedBoard)
+                if (editedBoard._id) commit('updateBoard', editedBoard)
+                else commit('addBoard', editedBoard)
             } catch (err) {
                 console.log('Error in board store:', err)
             }
@@ -54,7 +64,10 @@ export default {
     getters: {
         board(state) {
             const idx = state.boards.findIndex(board => board._id === state.currBoardId)
-            return state.board[idx]
-        }
+            return state.boards[idx]
+        },
+        boards(state) {
+            return state.boards
+        },
     }
 }
