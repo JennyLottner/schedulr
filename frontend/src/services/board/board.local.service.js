@@ -33,7 +33,8 @@ export const boardService = {
     toggleBoardToUserFavoriteBoards,
     addMemberToBoard,
     addGroup,
-    getBoards
+    getBoards,
+    getBoard
 }
 
 const _setUserBoards = () => {
@@ -51,12 +52,12 @@ const saveUpdatedBoards = (boards) => storageService.saveToStorage(BOARDS_KEY, b
 
 const createDefaultBoard = () => defaultBoard
 
-const _getBoard = (id) => storageService.loadFromStorage(BOARDS_KEY).find(board => id === board.id)
+const getBoard = (id) => storageService.loadFromStorage(BOARDS_KEY).find(board => id === board.id)
 
 function changeBoardField(field, id, value) {
     if (!(userBoards(boardId => id === boardId))) return console.error('The user has no access to this board')
     const boards = _getUserBoards()
-    const chosenBoard = _getBoard(id)
+    const chosenBoard = getBoard(id)
     const boardToEdit = { ...chosenBoard }
     boardToEdit[field] = value
     const idxOfChosenBoard = boards.findIndex(board => id === board.id)
@@ -78,7 +79,7 @@ function toggleBoardToUserFavoriteBoards(id) {
 const addMemberToBoard = (boardId, userId) => {
     const boards = getBoards()
     const boardsToUpdate = [...boards]
-    const chosenBoard = _getBoard(boardId)
+    const chosenBoard = getBoard(boardId)
     const chosenBoardIdx = boards.findIndex(board => board.id === boardId)
     const boardToEdit = { ...chosenBoard }
     boardToEdit.members.push(userId)
@@ -103,7 +104,7 @@ const _createGroup = () => {
 
 const addGroup = (boardId) => {
     const boards = getBoards()
-    const board = _getBoard(boardId)
+    const board = getBoard(boardId)
     const chosenBoardIdx = boards.findIndex(board => board.id === boardId)
     const boardsToUpdate = [ ...boards ]
     const group = _createGroup()
