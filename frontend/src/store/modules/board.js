@@ -9,6 +9,9 @@ export default {
         setBoard(state, boardId) {
             state.currBoardId = boardId
         },
+        setBoards(state, boards) {
+            state.boards = boards
+        },
         removeBoard(state, boardId) {
             const idx = state.boards.findIndex(board => board._id === boardId)
             state.boards.splice(idx, 1)
@@ -22,7 +25,19 @@ export default {
         },
     },
     actions: {
+        async loadBoards({ commit }) {
+            try {
+                const boards = await boardService.query()
+                commit('setBoards', boards)
+            } catch (err) { 
+                console.log('Error in board store:',err)
+            }
+        },
     },
     getters: {
+        board(state) {
+            const idx = state.boards.findIndex(board => board._id === state.currBoardId)
+            return state.board[idx]
+        }
     }
 }
