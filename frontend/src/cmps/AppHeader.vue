@@ -95,7 +95,7 @@ export default {
     width: 3rem;
     border-radius: 0.25rem;
     background-color: $nav-background;
-    margin-inline-start: 0.25rem;
+    margin-inline: 0.25rem 1rem;
     padding-inline-start: 1rem;
 
     .logo {
