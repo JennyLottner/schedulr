@@ -11,6 +11,8 @@
         class="header-background-img"
       />
     </header>
+
+    <!-- main section -->
   </section>
 </template>
 
@@ -36,19 +38,24 @@ export default {
 @import "../../style/setup/vars";
 
 .home-page {
+  color: $font-color;
+  
   header {
     width: 100%;
+    height: 4.6875rem;
+    overflow: hidden;
+    padding-inline: 1.25rem;
     box-shadow: 0px 3px 12px #e6e9ef;
 
     .greetings {
-      padding: 1rem;
-
       p {
         font-size: 0.875rem;
+        line-height: 1.32rem;
       }
 
       h2 {
         font-size: 1rem;
+        line-height: 1.375rem;
       }
     }
   }
