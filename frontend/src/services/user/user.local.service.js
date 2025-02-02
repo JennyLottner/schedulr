@@ -27,7 +27,7 @@ let users = [
         fullName: 'Guest',
         email: 'guest@gmail.com',
         id: 3,
-        imgUrl: 'https://scontent.fsdv1-2.fna.fbcdn.net/v/t39.30808-6/450085430_3609207502723883_1972484456701139373_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=xVqB4dO96xMQ7kNvgHDFRCp&_nc_ht=scontent.fsdv1-2.fna&oh=00_AYD_5Iw53ksjJcK1RoZaBfaOiXv8dr6IybOBJD7hDFPIOQ&oe=6700F8D8',
+        imgUrl: '../assets/pics/schedulr-logo.png',
         password: 'guest',
         boards: new Map(), // boardId: true/false if favorite
     }
