@@ -316,7 +316,7 @@ nav {
   font-family: Figtree, Roboto;
   font-size: 0.875rem;
   padding: 0.25rem 0.75rem;
-  background-color: $nav-background;
+  background-image: linear-gradient($nav-background, transparent);
 
   gap: 0.12rem;
 
