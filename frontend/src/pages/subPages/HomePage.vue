@@ -1,5 +1,6 @@
 <template>
-  <section class="home-page">
+  <div class="home-page-container">
+      <section class="home-page">
     <header class="flex align-center">
       <div class="greetings flex column">
         <p>Good {{ greetingByTimeOfDay }}, {{ userName }}!</p>
@@ -12,11 +13,31 @@
       />
     </header>
 
-    <!-- main section -->
+    <section class="content-container">
+      <h2>Recently Visited</h2>
+      <div class="boards-container grid">
+        <!-- repeat board card for user boards -->
+        <RouterLink to="board"> <!--add id to link-->
+          <BoardCard :boardName = "'Sample board'"/>
+        </RouterLink>
+        <RouterLink to="board">
+          <BoardCard :boardName = "'Another board'"/>
+        </RouterLink>
+        <RouterLink to="board">
+          <BoardCard :boardName = "'Another board'"/>
+        </RouterLink>
+        <RouterLink to="board">
+          <BoardCard :boardName = "'Another board'"/>
+        </RouterLink>
+      </div>
+    </section>
   </section>
+</div>
 </template>
 
 <script>
+import BoardCard from '@/cmps/BoardCard.vue'
+
 export default {
   computed: {
     greetingByTimeOfDay() {
@@ -31,15 +52,23 @@ export default {
       return 'Guest'
     },
   },
+  components: {
+    BoardCard
+  },
 }
 </script>
 
 <style scoped lang="scss">
 @import "../../style/setup/vars";
 
+.home-page-container {
+  overflow-y: scroll;
+  height: 100%;
+}
+
 .home-page {
   color: $font-color;
-  
+
   header {
     width: 100%;
     height: 4.6875rem;
@@ -57,6 +86,18 @@ export default {
         font-size: 1rem;
         line-height: 1.375rem;
       }
+    }
+  }
+
+  .content-container {
+    padding: 1.5rem;
+
+    .boards-container {
+      padding: 1rem 1rem 1.5rem 1rem;
+
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-auto-rows: auto;
+      gap: 1.25rem;
     }
   }
 }
