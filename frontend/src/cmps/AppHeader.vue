@@ -52,6 +52,7 @@ export default {
 .app-header {
   padding-inline: 1.5rem;
   background-color: transparent;
+  width: 100vw;
 
   button {
     @include headerBtn;
@@ -95,7 +96,7 @@ export default {
     width: 3rem;
     border-radius: 0.25rem;
     background-color: $nav-background;
-    margin-inline: 0.25rem 1rem;
+    margin-inline: 0.25rem 0.85rem;
     padding-inline-start: 1rem;
 
     .logo {

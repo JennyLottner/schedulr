@@ -22,8 +22,8 @@ export default {
 
 .main-page {
   height: 100vh;
-  width: 100%;
-  overflow-y: hidden;
+  width: 100vw;
+  overflow: hidden;
   background-color: $blue-background;
   grid-template-columns: 1fr 5fr;
   grid-template-rows: 2.7rem 1fr;

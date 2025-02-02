@@ -75,7 +75,7 @@
         </td>
         <td></td>
       </tr>
-      
+
       <tr class="footer-row group-grid grid">
         <td></td>
         <td></td>
@@ -114,7 +114,9 @@ export default {}
 
     .group-grid {
       width: 100%;
-      grid-template-columns: 0.375rem 2rem 18.5rem 4.05rem 6.1rem repeat( 3, 8.1rem) 4.05rem;
+      grid-template-columns:
+        0.375rem 2rem 18.5rem 4.05rem 6.1rem repeat(3, 8.1rem)
+        4.05rem;
       grid-auto-rows: 2.25rem;
     }
 
