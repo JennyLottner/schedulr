@@ -1,17 +1,17 @@
 <template>
   <section class="filter-section flex">
-    <div class="add-btn flex align-center">
+    <div class="add-btn btn-modal-container flex align-center">
       <button class="new-item-btn">New Item</button>
       <button
-        class="new-more-btn"
+        class="new-more-btn flex center"
         @click="onSelect('more')"
         :class="isSelected('more')"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="18px"
-          height="15px"
+          width="16px"
+          height="10px"
           viewBox="0 -4.5 20 20"
           version="1.1"
         >
@@ -38,30 +38,13 @@
           </g>
         </svg>
       </button>
-      <div v-if="selected === 'more'" class="modal more-modal">
-        <button class="more-btn">
-          <svg
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            width="16"
-            height="16"
-            role="img"
-            tabindex="0"
-            aria-hidden="false"
-            aria-label="New group of items"
-            class="icon_35c1b9ef14 icon-service-icon noFocusStyle_e846aee9b1"
-            data-testid="icon"
-          >
-            <path
-              d="M16 4.5H7.5L7.5 15.5H16C16.2761 15.5 16.5 15.2761 16.5 15V5C16.5 4.72386 16.2761 4.5 16 4.5ZM4 4.5H6L6 15.5H4C3.72386 15.5 3.5 15.2761 3.5 15V5C3.5 4.72386 3.72386 4.5 4 4.5ZM4 3C2.89543 3 2 3.89543 2 5V15C2 16.1046 2.89543 17 4 17H16C17.1046 17 18 16.1046 18 15V5C18 3.89543 17.1046 3 16 3H4ZM15 14V9H9V14H15Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-          New group of items
-        </button>
-      </div>
+
+      <BoardFilterModals
+        v-if="selected === 'more'"
+        :selected="selected"
+        :filterBy="filterBy"
+        @update-filter="updateFilter"
+      />
     </div>
 
     <div class="btn-modal-container">
@@ -73,8 +56,8 @@
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="#68697a"
-          width="15px"
-          height="15px"
+          width="16px"
+          height="16px"
           viewBox="0 0 32 32"
         >
           <g id="search">
@@ -85,15 +68,13 @@
         </svg>
         Search
       </button>
-      <div v-if="selected === 'search'" class="modal search-modal">
-        <form>
-          <input
-            type="text"
-            v-model="filterBy.txt"
-            placeholder="Search this board"
-          />
-        </form>
-      </div>
+
+      <BoardFilterModals
+        v-if="selected === 'search'"
+        :selected="selected"
+        :filterBy="filterBy"
+        @update-filter="updateFilter"
+      />
     </div>
 
     <div class="btn-modal-container">
@@ -106,8 +87,8 @@
         <svg
           viewBox="0 0 20 20"
           fill="currentColor"
-          width="15"
-          height="15"
+          width="20"
+          height="20"
           aria-hidden="true"
           class="icon_35c1b9ef14 filter-item-icon-component noFocusStyle_e846aee9b1 st-current"
           data-testid="icon"
@@ -128,17 +109,13 @@
         </svg>
         Person
       </button>
-      <div v-if="selected === 'person'" class="modal person-modal">
-        <h2>Filter this board by person</h2>
-        <p>And find items they're working on.</p>
-        <form>
-          <select v-model="filterBy.person">
-            <option value="">Choose person</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-          </select>
-        </form>
-      </div>
+
+      <BoardFilterModals
+        v-if="selected === 'person'"
+        :selected="selected"
+        :filterBy="filterBy"
+        @update-filter="updateFilter"
+      />
     </div>
 
     <div class="btn-modal-container">
@@ -151,8 +128,8 @@
         <svg
           viewBox="0 0 20 20"
           fill="currentColor"
-          width="15"
-          height="16"
+          width="20"
+          height="20"
           aria-hidden="true"
           class="icon_35c1b9ef14 filter-item-icon-component noFocusStyle_e846aee9b1 st-current"
           data-testid="icon"
@@ -167,15 +144,13 @@
         </svg>
         Filter
       </button>
-      <div v-if="selected === 'filter'" class="modal filter-modal">
-        <form>
-          <select v-model="filterBy.filter">
-            <option value="" disabled hidden>Choose something</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-          </select>
-        </form>
-      </div>
+
+      <BoardFilterModals
+        v-if="selected === 'filter'"
+        :selected="selected"
+        :filterBy="filterBy"
+        @update-filter="updateFilter"
+      />
     </div>
 
     <div class="btn-modal-container">
@@ -188,8 +163,8 @@
         <svg
           viewBox="0 0 20 20"
           fill="currentColor"
-          width="15"
-          height="15"
+          width="20"
+          height="20"
           aria-hidden="true"
           class="icon_35c1b9ef14 filter-item-icon-component noFocusStyle_e846aee9b1 st-current"
           data-testid="icon"
@@ -202,23 +177,20 @@
         </svg>
         Sort
       </button>
-      <div v-if="selected === 'sort'" class="modal sort-modal">
-        <h2>Sort By</h2>
-        <form class="flex">
-          <select v-model="filterBy.sort.col">
-            <option value="" disabled hidden>Choose column</option>
-          </select>
-          <select v-model="filterBy.sort.dir">
-            <option value="1">Ascending</option>
-            <option value="-1">Descending</option>
-          </select>
-        </form>
-      </div>
+
+      <BoardFilterModals
+        v-if="selected === 'sort'"
+        :selected="selected"
+        :filterBy="filterBy"
+        @update-filter="updateFilter"
+      />
     </div>
   </section>
 </template>
 
 <script>
+import BoardFilterModals from './BoardFilterModals.vue';
+
 export default {
   data() {
     return {
@@ -241,6 +213,18 @@ export default {
         !event.target.closest('.filter-section button') && !event.target.closest('.modal')
       ) { this.selected = '' }
     },
+    updateFilter(path, value) {
+      const newFilter = { ...this.filterBy } // Create a shallow copy
+      let obj = newFilter
+
+      for (let i = 0; i < path.length - 1; i++) {  // Traverse to Field to change
+        obj = obj[path[i]]
+      }
+
+      obj[path[path.length - 1]] = value // Update the final property
+
+      this.$emit('update-filter', newFilter) // Emit the new filter to parent component
+    },
   },
   computed: {
     isSelected() {   // handle class for selected styling
@@ -253,6 +237,9 @@ export default {
   beforeUnmount() {   // Remove global click listener
     document.removeEventListener('click', this.handleOutsideClick);
   },
+  components: {
+    BoardFilterModals,
+  }
 }
 </script>
 
@@ -262,87 +249,63 @@ export default {
 .filter-section {
   padding-block: 1rem;
   border-block-start: 1px solid $app-gray;
-  gap: 1rem;
+  gap: 0.5rem;
 
-  button:not(.more-btn) {
-    padding: 0.56rem;
-    border-radius: $border-radius-xs;
-    background-color: transparent;
+  button {
+    height: 2rem;
+    font-size: 0.875rem;
 
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
+    &:not(.add-btn button) {
+      color: $font-color;
+      padding-inline: 0.5rem 0.75rem;
+      border-radius: $border-radius-xs;
+      background-color: transparent;
 
-    &:hover {
-      background-color: $primary-background-hover-color;
-    }
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
 
-    &.selected {
-      background-color: $primary-selected-color;
+      &:hover {
+        background-color: $primary-background-hover-color;
+      }
+
+      &.selected {
+        background-color: $primary-selected-color;
+      }
     }
   }
 
-  .add-btn button:not(.more-btn) {
-    color: white;
-    background-color: $blue-btn;
-    height: 100%;
+  .add-btn {
+    margin-inline-end: 0.5rem;
 
-    &:first-of-type {
-      border-radius: $border-radius-xs 0 0 $border-radius-xs;
-    }
+    button:not(.more-btn) {
+      color: white;
+      background-color: $blue-btn;
 
-    &:nth-of-type(2) {
-      border-radius: 0 $border-radius-xs $border-radius-xs 0;
-    }
+      &:first-of-type {
+        padding-inline: 0.75rem;
+        border-radius: $border-radius-xs 0 0 $border-radius-xs;
+        border-inline-end: 1px solid $hovered-blue-btn;
+      }
 
-    &:hover,
-    &.selected {
-      background-color: $hovered-blue-btn;
+      &:nth-of-type(2) {
+        width: 1.75rem;
+        border-radius: 0 $border-radius-xs $border-radius-xs 0;
+      }
+
+      &:hover,
+      &.selected {
+        background-color: $hovered-blue-btn;
+      }
     }
   }
 
   svg {
-    color: $svg-color
+    color: $svg-color;
   }
 
-  .btn-modal-container,
-  .add-btn {
+  .btn-modal-container {
     position: relative;
-
-    .modal {
-      position: absolute;
-      top: 2.5rem;
-
-      background-color: white;
-      padding: 1.25rem 1rem 1rem;
-      border-radius: $border-radius-s;
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 17px 6px;
-
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-
-      h2 {
-        font-size: 1rem;
-        font-weight: normal;
-      }
-
-      p {
-        font-size: 0.875rem;
-      }
-
-      button {
-        background-color: transparent;
-
-        &:hover {
-          background-color: $primary-background-hover-color;
-        }
-      }
-
-      form {
-        column-gap: 0.5rem;
-      }
-    }
   }
 }
 </style>
