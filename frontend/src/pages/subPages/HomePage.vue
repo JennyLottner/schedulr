@@ -1,42 +1,45 @@
 <template>
   <div class="home-page-container">
-      <section class="home-page">
-    <header class="flex align-center">
-      <div class="greetings flex column">
-        <p>Good {{ greetingByTimeOfDay }}, {{ userName }}!</p>
-        <h2>Quickly access your recent boards, Inbox and workspaces</h2>
-      </div>
-      <img
-        src="../../assets/pics/confetti.svg"
-        alt="Confetti"
-        class="header-background-img"
-      />
-    </header>
+    <section class="home-page">
+      <header class="flex align-center">
+        <div class="greetings flex column">
+          <p>Good {{ greetingByTimeOfDay }}, {{ userName }}!</p>
+          <h2>Quickly access your recent boards, Inbox and workspaces</h2>
+        </div>
+        <img
+          src="../../assets/pics/confetti.svg"
+          alt="Confetti"
+          class="header-background-img"
+        />
+      </header>
 
-    <section class="content-container">
-      <h2>Recently Visited</h2>
-      <div class="boards-container grid">
-        <!-- repeat board card for user boards -->
-        <RouterLink to="board"> <!--add id to link-->
-          <BoardCard :boardName = "'Sample board'"/>
-        </RouterLink>
-        <RouterLink to="board">
-          <BoardCard :boardName = "'Another board'"/>
-        </RouterLink>
-        <RouterLink to="board">
-          <BoardCard :boardName = "'Another board'"/>
-        </RouterLink>
-        <RouterLink to="board">
-          <BoardCard :boardName = "'Another board'"/>
-        </RouterLink>
-      </div>
+      <section class="content-container">
+        <Accordion :accordionTitle="'Recently visited'">
+          <div class="boards-container grid">
+            <!-- repeat board card for user boards -->
+            <RouterLink to="board">
+              <!--add id to link-->
+              <BoardCard :boardName="'Sample board'" />
+            </RouterLink>
+            <RouterLink to="board">
+              <BoardCard :boardName="'Another board'" />
+            </RouterLink>
+            <RouterLink to="board">
+              <BoardCard :boardName="'Another board'" />
+            </RouterLink>
+            <RouterLink to="board">
+              <BoardCard :boardName="'Another board'" />
+            </RouterLink>
+          </div>
+        </Accordion>
+      </section>
     </section>
-  </section>
-</div>
+  </div>
 </template>
 
 <script>
 import BoardCard from '@/cmps/BoardCard.vue'
+import Accordion from '@/cmps/helpers/Accordion.vue';
 
 export default {
   computed: {
@@ -53,7 +56,8 @@ export default {
     },
   },
   components: {
-    BoardCard
+    BoardCard,
+    Accordion,
   },
 }
 </script>
@@ -84,6 +88,7 @@ export default {
 
       h2 {
         font-size: 1rem;
+        font-weight: 500;
         line-height: 1.375rem;
       }
     }
@@ -91,6 +96,9 @@ export default {
 
   .content-container {
     padding: 1.5rem;
+    border-radius: $border-radius-s;
+    box-shadow: 0 3px 12px #e6e9ef;
+    margin: 1rem 1.25rem 2rem;
 
     .boards-container {
       padding: 1rem 1rem 1.5rem 1rem;
