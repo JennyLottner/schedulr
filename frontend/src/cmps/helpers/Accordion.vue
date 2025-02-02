@@ -34,6 +34,9 @@ export default {
 
 .title-container {
   gap: 0.25rem;
+  width: fit-content;
+
+  cursor: pointer;
   
   h2 {
     font-size: 1.125rem;
