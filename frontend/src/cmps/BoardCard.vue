@@ -186,7 +186,9 @@
 
 <script>
 export default {
-  props: ['boardName'],
+  props: {
+    boardName: { type: String, required: true },
+  },
 }
 </script>
 
