@@ -2,7 +2,7 @@
   <section class="home-page">
     <header class="flex align-center">
       <div class="greetings flex column">
-        <p>Good {{ greetingByTimeOfDay }}, [user_name/Guest]</p>
+        <p>Good {{ greetingByTimeOfDay }}, {{ userName }}!</p>
         <h2>Quickly access your recent boards, Inbox and workspaces</h2>
       </div>
       <img
@@ -19,10 +19,14 @@ export default {
   computed: {
     greetingByTimeOfDay() {
       const time = new Date().getHours()
-      if (time >= 5 && time < 12 ) return 'morning'    // 5am to 12pm
+      if (time >= 5 && time < 12) return 'morning'    // 5am to 12pm
       if (time >= 12 && time < 17) return 'afternoon'  // 12pm to 5pm
       if (time >= 17 && time < 20) return 'evening'    // 5pm to 8pm
       if (time >= 20 || time < 5) return 'night'       // 8pm to 5am
+    },
+    userName() {
+      if (!!this.$store.getters['user']) return this.$store.getters['user'].split(' ')[0]
+      return 'Guest'
     },
   },
 }
