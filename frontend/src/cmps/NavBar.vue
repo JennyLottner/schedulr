@@ -1,7 +1,7 @@
 <template>
   <nav class="flex column">
     <RouterLink
-      to="/home"
+      to="/"
       :class="isSelected('/home')"
       class="tab-container flex align-center"
     >
@@ -26,7 +26,7 @@
 
     <!-- change the routerlink's to attr when there is a work path, each router link should have a to attr -->
     <RouterLink
-      to="/"
+      to="/my_work"
       :class="isSelected('/work')"
       class="tab-container flex align-center"
     >

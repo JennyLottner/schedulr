@@ -80,7 +80,6 @@ export default {
 
 <style scoped lang="scss">
 @import "../../style/setup/vars";
-@import "../../style/basics/helpers";
 
 .board-page {
   header {
