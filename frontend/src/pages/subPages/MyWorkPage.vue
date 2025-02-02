@@ -1,0 +1,24 @@
+<template>
+  <section class="my-work-page">
+    <h1>My Work</h1>
+  </section>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style scoped lang="scss">
+@import "../../style/setup/vars";
+
+.my-work-page {
+  padding: 1.875rem 1.875rem 0;
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+</style>
