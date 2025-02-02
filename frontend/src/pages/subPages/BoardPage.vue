@@ -44,12 +44,12 @@
           </svg>
         </span>
         <p>Main Table</p>
-        <button class="more-btn flex align-center">
+        <button class="more-btn flex center">
           <svg
             viewBox="0 0 20 20"
             fill="currentColor"
-            width="24"
-            height="24"
+            width="20"
+            height="16"
             aria-hidden="true"
             class="icon_d6a7187c13 noFocusStyle_48049c26c1"
             data-testid="icon"
@@ -65,7 +65,10 @@
       <BoardFilter />
     </header>
 
-    <GroupCmp />
+    <main>
+      <GroupCmp />
+    </main>
+
   </section>
 </template>
 
@@ -83,56 +86,73 @@ export default {
 
 .board-page {
   header {
-    padding: 1.125rem 1.875rem 0 2.375rem;
+    padding: 1.2rem 1.875rem 0 2.375rem;
 
     .project-title-btn,
     .more-settings-btn,
     .secondary-title {
       border-radius: $border-radius-xs;
       background-color: transparent;
-      padding: 0rem 0.25rem;
-      color: #323338;
-
+      color: $font-color;
+      
       &:hover {
         background-color: $primary-background-hover-color;
       }
-
+      
       & > h1 {
-        font-size: 1.5rem;
-        font-weight: 500;
-        line-height: 1.875rem;
         font-family: Poppins, Roboto;
+        font-size: 1.5rem;
+        line-height: 1.875rem;
+        font-weight: 500;
+        padding: 0.1rem 0.25rem;
+        
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
 
+    .more-settings-btn {
+      margin-inline-end: 1rem;
+    }
+
     .secondary-title {
+      font-size: 0.875rem;
       width: fit-content;
+      height: 2rem;
+      padding: 0.2rem 0.55rem 0.5rem 0.5rem;
       border-radius: $border-radius-xs $border-radius-xs 0 0;
       border-block-end: 2px solid $blue-btn;
-      margin-block: 1rem -1px;
+      margin-block: 0.5rem -1px;
+      z-index: 1;
+
+      gap: 0.2rem;
 
       cursor: pointer;
 
       .house-icon {
-        transform: translateY(2px);
+        transform: translateY(3px);
       }
-
-      p {
-        font-size: 0.875rem;
-        padding-inline: 0.25rem;
-      }
-
+      
       .more-btn {
-        scale: 0.6;
+        width: 20px;
+        height: 20px;
+        padding: 3px;
         background-color: transparent;
         border-radius: $border-radius-xs;
-        padding: 0.2rem;
+        margin-inline-start: 0.3rem;
+
+        transform: translateY(2px);
 
         &:hover {
           background-color: #cce5ff;
         }
       }
     }
+  }
+
+  main {
+    padding: 0.5rem 0 2.5rem 2.5rem;
   }
 }
 </style>

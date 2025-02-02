@@ -91,15 +91,13 @@
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style lang="scss">
 @import "../style/setup/vars";
 
 .group-section {
-  padding-inline: 2.375rem 1.875rem;
-
   table {
     width: 100%;
 
