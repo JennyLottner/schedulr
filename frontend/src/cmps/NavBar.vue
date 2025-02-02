@@ -24,7 +24,9 @@
       <p>Home</p>
     </RouterLink>
 
+    <!-- change the routerlink's to attr when there is a work path, each router link should have a to attr -->
     <RouterLink
+      to="/"
       :class="isSelected('/work')"
       class="tab-container flex align-center"
     >
@@ -268,37 +270,42 @@
 </template>
 
 <script>
-import { watch, ref } from 'vue';
-import { useRoute } from 'vue-router'
+import { watch, ref } from "vue";
+import { useRoute } from "vue-router";
 
 export default {
   setup() {
-    const route = useRoute()
-    const currPath = ref(route.path)  // Make reactive reference 
+    const route = useRoute();
+    const currPath = ref(route.path); // Make reactive reference
 
-    watch(() => route.path, (newPath) => {  // Watch the route and update currPath
-      currPath.value = newPath
-    })
-    return { currPath }
+    watch(
+      () => route.path,
+      (newPath) => {
+        // Watch the route and update currPath
+        currPath.value = newPath;
+      }
+    );
+    return { currPath };
   },
   data() {
     return {
       favorites: false,
-    }
+    };
   },
   methods: {
     onFav() {
-      this.favorites = !this.favorites
+      this.favorites = !this.favorites;
 
-      if (this.favorites) console.log(this.favorites) // make display
+      if (this.favorites) console.log(this.favorites); // make display
     },
   },
   computed: {
-    isSelected() {   // handle class for selected styling
-      return (val) => ({ selected: this.currPath === val })
+    isSelected() {
+      // handle class for selected styling
+      return (val) => ({ selected: this.currPath === val });
     },
   },
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -323,14 +330,14 @@ nav {
     background-color: transparent;
     padding: 0.5rem 0.25rem 0.5rem 0.375rem;
     border-radius: 4px;
-    
+
     gap: 0.45rem;
 
-    p { 
+    p {
       max-width: calc(100% - 1.75rem);
       white-space: nowrap;
       overflow: hidden;
-      text-overflow:ellipsis;
+      text-overflow: ellipsis;
     }
 
     &:not(.workspace-title) {
