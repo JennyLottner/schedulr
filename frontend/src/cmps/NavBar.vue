@@ -311,7 +311,7 @@ nav {
   padding: 0.25rem 0.75rem;
   background-color: $nav-background;
 
-  gap: 0.15rem;
+  gap: 0.12rem;
 
   .workplaces,
   .favorites,

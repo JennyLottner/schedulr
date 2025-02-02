@@ -25,7 +25,8 @@ export default {
   width: 100vw;
   overflow: hidden;
   background-color: $blue-background;
-  grid-template-columns: 15rem 1fr;
+
+  grid-template-columns: 15.25rem 1fr;
   grid-template-rows: 2.7rem 1fr;
   column-gap: 0.625rem;
 
@@ -45,6 +46,18 @@ export default {
     border-radius: 0.5rem 0 0 0;
     background-color: white;
     overflow: hidden;
+
+    ::-webkit-scrollbar {
+      width: 0.625rem;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #b0b0b0;
+    }
   }
 }
 </style>
