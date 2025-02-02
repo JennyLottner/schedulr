@@ -1,6 +1,7 @@
 // import userService from '../services/userService.js'
 
 import { userService } from "@/services/user/user.local.service"
+import { useStore } from "vuex"
 
 export default {
     state: {
@@ -28,6 +29,15 @@ export default {
     getters: {
         user(state) {
             return state.user
-        }
+        },
+        usersName(state) {
+            return state.user.fullName
+        },
+        userImg(state) {
+            return state.user.imgUrl
+        },
+        userBoards(state) {
+            return state.user.boards
+        },
     }
 }
