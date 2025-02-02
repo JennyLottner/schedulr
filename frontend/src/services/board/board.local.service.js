@@ -4,6 +4,7 @@ import { userService } from "../user/user.local.service"
 const BOARDS_KEY = 'boards_db'
 const user = userService.getUser() || null
 const userBoards = []
+let cachedBoards = []
 
 const defaultBoard = {
     id: 1,
@@ -33,7 +34,7 @@ export const boardService = {
     toggleBoardToUserFavoriteBoards,
     addMemberToBoard,
     addGroup,
-    getBoards,
+    query,
     getBoard
 }
 
@@ -46,7 +47,7 @@ const _setUserBoards = () => {
 
 const _getUserBoards = () => userBoards
 
-const getBoards = () => storageService.loadFromStorage(BOARDS_KEY)
+const query = () => cachedBoards.length > 1 ? cachedBoards : storageService.loadFromStorage(BOARDS_KEY)
 
 const saveUpdatedBoards = (boards) => storageService.saveToStorage(BOARDS_KEY, boards)
 
@@ -77,7 +78,7 @@ function toggleBoardToUserFavoriteBoards(id) {
 }
 
 const addMemberToBoard = (boardId, userId) => {
-    const boards = getBoards()
+    const boards = query()
     const boardsToUpdate = [...boards]
     const chosenBoard = getBoard(boardId)
     const chosenBoardIdx = boards.findIndex(board => board.id === boardId)
@@ -103,7 +104,7 @@ const _createGroup = () => {
 }
 
 const addGroup = (boardId) => {
-    const boards = getBoards()
+    const boards = query()
     const board = getBoard(boardId)
     const chosenBoardIdx = boards.findIndex(board => board.id === boardId)
     const boardsToUpdate = [ ...boards ]

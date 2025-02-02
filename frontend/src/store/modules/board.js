@@ -29,7 +29,7 @@ export default {
             try {
                 commit('setBoard', boardId)
 
-                const board = await boardService.getBoard(boardId)
+                const board = boardService.getBoard(boardId) // change to await when moving to service that uses backend
                 return board
             } catch (err) {
                 console.log('Error in board store:', err)
