@@ -370,7 +370,7 @@ nav {
     .search-bar {
       padding: 0.4rem 0.25rem 0.4rem 0.375rem;
       border: 1px $app-gray solid;
-      border-radius: 4px;
+      border-radius: $border-radius-xs;
       max-width: calc(100% - 2.25rem);
 
       grid-template-columns: 1rem calc(100% - 2rem) 1rem;
