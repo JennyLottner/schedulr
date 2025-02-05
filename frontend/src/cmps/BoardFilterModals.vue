@@ -66,13 +66,13 @@
               clip-rule="evenodd"
             ></path>
           </svg>
-        <input
-          type="text"
-          :value="filterBy.txt"
-          @input="updateFilter('txt', $event.target.value)"
-          placeholder="Search this board"
-        />
-      </div>
+          <input
+            type="text"
+            :value="filterBy.txt"
+            @input="updateFilter('txt', $event.target.value)"
+            placeholder="Search this board"
+          />
+        </div>
       </form>
     </article>
 
@@ -80,14 +80,39 @@
       <h2>Filter this board by person</h2>
       <p>And find items they're working on.</p>
       <form>
-        <select
-          :value="filterBy.person"
-          @change="updateFilter('person', $event.target.value)"
-        >
-          <option value="">Choose person</option>
-          <option value="A">A</option>
-          <option value="B">B</option>
-        </select>
+        <ul class="grid align-center">
+          <li v-for="user in users" :key="user.id">
+            <button
+              @click="updateFilter('person', user.id)"
+              :title="user.fullName"
+            >
+              <img :src="user.imgUrl" :alt="user.fullName" />
+            </button>
+          </li>
+          <li>
+            <button
+              @click="updateFilter('person', '')"
+              title="all users"
+              class="flex center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                fill="#000000"
+                height="20px"
+                width="20px"
+                version="1.1"
+                id="Layer_1"
+                viewBox="0 0 1792 1792"
+                xml:space="preserve"
+              >
+                <path
+                  d="M1082.2,896.6l410.2-410c51.5-51.5,51.5-134.6,0-186.1s-134.6-51.5-186.1,0l-410.2,410L486,300.4  c-51.5-51.5-134.6-51.5-186.1,0s-51.5,134.6,0,186.1l410.2,410l-410.2,410c-51.5,51.5-51.5,134.6,0,186.1  c51.6,51.5,135,51.5,186.1,0l410.2-410l410.2,410c51.5,51.5,134.6,51.5,186.1,0c51.1-51.5,51.1-134.6-0.5-186.2L1082.2,896.6z"
+                />
+              </svg>
+            </button>
+          </li>
+        </ul>
       </form>
     </article>
 
@@ -130,6 +155,15 @@ export default {
   props: {
     selected: { type: String, required: true },
     filterBy: { type: Object, required: true },
+  },
+  data() {
+    return {
+      users: [
+        { id: 1, fullName: 'Jenny Tover', imgUrl: 'https://robohash.org/jennyTover.png?set=set5' },
+        { id: 2, fullName: 'Shoval Sabag', imgUrl: 'https://robohash.org/shovalSabag.png?set=set5' },
+        { id: 3, fullName: 'Guest', imgUrl: 'https://robohash.org/guest.png?set=set5' },
+      ],
+    }
   },
   methods: {
     updateFilter(field, value) {
@@ -183,44 +217,82 @@ article {
   form {
     column-gap: 0.5rem;
   }
-}
 
-.more-modal {
-  padding: 0.5rem;
+  &.more-modal {
+    padding: 0.5rem;
 
-  gap: 0;
+    gap: 0;
 
-  .more-btn {
-    grid-template-columns: 1rem 1fr;
+    .more-btn {
+      grid-template-columns: 1rem 1fr;
+      column-gap: 0.5rem;
+
+      text-align: start;
+      padding: 0.5rem 1rem 0.5rem 0.5rem;
+      border-radius: $border-radius-xs;
+    }
+  }
+
+  &.search-modal .search-bar {
+    padding: 0.4rem 0.25rem 0.4rem 0.375rem;
+    border: 1px $app-gray solid;
+    border-radius: $border-radius-xs;
+
+    grid-template-columns: 1rem minmax(12rem, 1fr);
     column-gap: 0.5rem;
 
-    text-align: start;
-    padding: 0.5rem 1rem 0.5rem 0.5rem;
-    border-radius: $border-radius-xs;
+    input {
+      background-color: transparent;
+      border: none;
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      svg {
+        color: $svg-color;
+      }
+
+      caret-color: $font-color;
+    }
   }
-}
 
-.search-modal .search-bar {
-  padding: 0.4rem 0.25rem 0.4rem 0.375rem;
-  border: 1px $app-gray solid;
-  border-radius: $border-radius-xs;
+  &.person-modal {
+    max-width: 20rem;
+    scrollbar-width: none;
 
-  grid-template-columns: 1rem minmax(12rem, 1fr);
-  column-gap: 0.5rem;
-
-  input {
-    background-color: transparent;
-    border: none;
-
-    &:focus-visible {
-      outline: none;
+    ::-webkit-scrollbar {
+      display: none;
     }
 
-    svg {
-      color: $svg-color;
-    }
+    gap: 0.5rem;
 
-    caret-color: $font-color;
+    ul {
+      padding: 0.5rem 0.2rem;
+      overflow-x: scroll;
+
+      grid-auto-flow: column;
+      grid-auto-columns: 2.5rem;
+      column-gap: 0.5rem;
+
+      li {
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: $app-gray;
+        border-radius: 50%;
+        overflow: hidden;
+
+        &:hover {
+          scale: 1.1;
+        }
+
+        button,
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
   }
 }
 </style>
