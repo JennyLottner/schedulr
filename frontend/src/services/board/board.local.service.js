@@ -46,8 +46,6 @@ const _setUserBoards = () => {
     })
 }
 
-const _getUserBoards = () => userBoards
-
 const query = () => cachedBoards.length ? cachedBoards : storageService.loadFromStorage(BOARDS_KEY)
 
 const saveUpdatedBoards = (boards) => storageService.saveToStorage(BOARDS_KEY, boards)
