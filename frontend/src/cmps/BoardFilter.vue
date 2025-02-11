@@ -213,6 +213,11 @@ export default {
         !event.target.closest('.filter-section button') && !event.target.closest('.modal')
       ) { this.selected = '' }
     },
+    updateFilter(path, val) {  // General update function - not sort
+      const newFilter = { ...this.filterBy } // Shallow copy of filterBy
+      newFilter[path] = val // Directly update for other non-sort fields
+      this.filterBy = newFilter
+    },
     handleSort(action, idx = null, val = null) {
       const newSort = [...this.filterBy.sort] // Shallow copy of the sort array
 
