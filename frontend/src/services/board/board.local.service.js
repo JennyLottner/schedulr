@@ -4,7 +4,6 @@ import { utilService } from "../util.service"
 
 const BOARDS_KEY = 'boards_db'
 const user = userService.getUser() || null
-const userBoards = []
 let cachedBoards = []
 
 const defaultBoard = {
@@ -36,14 +35,17 @@ export const boardService = {
     addMemberToBoard,
     addGroup,
     query,
-    getBoard
+    getBoard,
+    save
 }
 
-const _setUserBoards = () => {
-    const boards = storageService.loadFromStorage(BOARDS_KEY)
+const _getUserBoards = () => {
+    const userBoards = []
+    const boards = query()
     if (boards) boards.forEach(board => {
         if (user.boards.has(board.id)) userBoards.push(board)
     })
+    return userBoards
 }
 
 const query = () => cachedBoards.length ? cachedBoards : storageService.loadFromStorage(BOARDS_KEY)
@@ -57,7 +59,7 @@ const getBoard = (id) => storageService.loadFromStorage(BOARDS_KEY).find(board =
 function updateBoard(board) {
     const boards = query()
     const chosenBoard = boards.find(_board => _board.id === board.id)
-    if (chosenBoard.members.find(member => member.id === user.id)) return console.error('The user has no access to this board')
+    if (!chosenBoard.members.find(member => member.id === user.id)) return console.error('The user has no access to this board')
     const idxOfChosenBoard = boards.findIndex(_board => _board.id === board.id)
     boards[idxOfChosenBoard] = boardToEdit
     saveUpdatedBoards(boards)
@@ -65,7 +67,7 @@ function updateBoard(board) {
 
 function addBoard(board) {
     const boards = query()
-    if (board.members.find(member => member.id === user.id)) return console.error('The user has no access to this board')
+    if (!board.members.find(member => member.id === user.id)) return console.error('The user has no access to this board')
     board.id = utilService.makeId()
     boards.push(board)
     saveUpdatedBoards(boards)
@@ -78,13 +80,13 @@ function toggleBoardToUserFavoriteBoards(id) {
 
 const addMemberToBoard = (boardId, userId) => {
     const boards = query()
-    const boardsToUpdate = [...boards]
-    const chosenBoard = getBoard(boardId)
-    const chosenBoardIdx = boards.findIndex(board => board.id === boardId)
+    const updatedBoards = [ ...boards ]
+    const chosenBoard = getBoard(boardId)    
     const boardToEdit = { ...chosenBoard }
+    const chosenBoardIdx = boards.findIndex(board => board.id === boardId)
     boardToEdit.members.push(userId)
-    boardsToUpdate[chosenBoardIdx] = boardToEdit
-    saveUpdatedBoards(boardsToUpdate)
+    updatedBoards[chosenBoardIdx] = boardToEdit
+    saveUpdatedBoards(updatedBoards)
 }
 
 const _createGroup = () => {
