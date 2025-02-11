@@ -182,7 +182,7 @@
         v-if="selected === 'sort'"
         :selected="selected"
         :filterBy="filterBy"
-        @update-filter="updateFilter"
+        @handle-sort="handleSort"
       />
     </div>
   </section>
@@ -199,7 +199,7 @@ export default {
         txt: '',     // text in searchbar
         person: '',  // person id
         filter: '', // what would this one do?
-        sort: { col: '', dir: 1 },    //direction can be 1 or -1
+        sort: [{ idx: 0, col: '', dir: 1 }],    //direction can be 1 or -1
       },
     }
   },
@@ -213,17 +213,45 @@ export default {
         !event.target.closest('.filter-section button') && !event.target.closest('.modal')
       ) { this.selected = '' }
     },
-    updateFilter(path, value) {
-      const newFilter = { ...this.filterBy } // Create a shallow copy
-      let obj = newFilter
+    handleSort(action, idx = null, val = null) {
+      const newSort = [...this.filterBy.sort] // Shallow copy of the sort array
 
-      for (let i = 0; i < path.length - 1; i++) {  // Traverse to Field to change
-        obj = obj[path[i]]
+      switch (action.split(' ')[0]) {
+        case 'update':    // Update the column or direction of an existing sort object
+          newSort[idx][action.split(' ')[1]] = val
+          break
+
+        case 'add':      // Add a new sort object with a new idx
+          newSort.push({ idx: newSort.length, col: '', dir: 1 })
+          break
+
+        case 'remove':   // Remove the sort object by idx
+          const indexToRemove = newSort.findIndex(sort => sort.idx === idx)
+          if (indexToRemove !== -1) {
+            newSort.splice(indexToRemove, 1)
+          }
+          break
+
+        case 'clear':   // Clear all sort objects
+          newSort.length = 0
+          break
+
+        case 'swap':    // Swap the idx of two sort objects
+          const [a, b] = val
+          [newSort[a], newSort[b]] = [newSort[b], newSort[a]]
+          break
+
+        default:
+          break
       }
 
-      obj[path[path.length - 1]] = value // Update the final property
+      if (newSort.length === 0) {     // Always leave default sort object
+        newSort.push({ idx: 0, col: '', dir: 1 })
+      }
 
-      this.$emit('update-filter', newFilter) // Emit the new filter to parent component
+      // Update the filterBy object with the modified sort
+      this.filterBy.sort = newSort
+      
     },
   },
   computed: {
@@ -232,10 +260,10 @@ export default {
     },
   },
   mounted() {     // Add global click listener
-    document.addEventListener('click', this.handleOutsideClick);
+    document.addEventListener('click', this.handleOutsideClick)
   },
   beforeUnmount() {   // Remove global click listener
-    document.removeEventListener('click', this.handleOutsideClick);
+    document.removeEventListener('click', this.handleOutsideClick)
   },
   components: {
     BoardFilterModals,
