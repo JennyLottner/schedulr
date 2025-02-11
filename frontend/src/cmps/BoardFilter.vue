@@ -189,7 +189,8 @@
 </template>
 
 <script>
-import BoardFilterModals from './BoardFilterModals.vue';
+import debounce from 'lodash.debounce'
+import BoardFilterModals from './BoardFilterModals.vue'
 
 export default {
   data() {
@@ -263,6 +264,11 @@ export default {
     isSelected() {   // handle class for selected styling
       return (val) => ({ selected: this.selected === val })
     },
+  },
+  watch: {
+    "filterBy.txt": debounce(function (newVal) {
+    this.$emit("update-filter", "txt", newVal)
+  }, 300)
   },
   mounted() {     // Add global click listener
     document.addEventListener('click', this.handleOutsideClick)
