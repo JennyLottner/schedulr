@@ -36,10 +36,11 @@ export const boardService = {
     addGroup,
     query,
     getBoard,
-    save
+    save,
+    getUserBoards
 }
 
-const _getUserBoards = () => {
+const getUserBoards = () => {
     const userBoards = []
     const boards = query()
     if (boards) boards.forEach(board => {
