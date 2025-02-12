@@ -232,9 +232,16 @@ export default {
           break
 
         case 'remove':   // Remove the sort object by idx
+        newSort.sort((a, b) => a.idx - b.idx)
           const indexToRemove = newSort.findIndex(sort => sort.idx === idx)
           if (indexToRemove !== -1) {
-            newSort.splice(indexToRemove, 1)
+            newSort.splice(indexToRemove, 1) // Remove sort object matching idx
+
+            for (let i = indexToRemove; i < newSort.length; i++) {  // Move idx's higher down by 1
+              if (newSort[i].idx > idx) {
+                newSort[i].idx -= 1 
+              }
+            }
           }
           break
 
@@ -257,7 +264,7 @@ export default {
 
       // Update the filterBy object with the modified sort
       this.filterBy.sort = newSort
-      
+
     },
   },
   computed: {
@@ -267,8 +274,8 @@ export default {
   },
   watch: {
     "filterBy.txt": debounce(function (newVal) {
-    this.$emit("update-filter", "txt", newVal)
-  }, 300)
+      this.$emit("update-filter", "txt", newVal)
+    }, 300)
   },
   mounted() {     // Add global click listener
     document.addEventListener('click', this.handleOutsideClick)
