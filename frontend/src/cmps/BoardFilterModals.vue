@@ -172,10 +172,7 @@
         <ul class="grid">
           <li
             class="grid"
-            v-for="(sortObj, index) in filterBy.sort"
-            :key="index"
-            @click="currIdx = sortObj.idx"
-          >
+            v-for="(sortObj, index) in filterBy.sort" :key="index" @click="currIdx = sortObj.idx">
             <button
               class="drag-hook flex center"
               :class="filterBy.sort.length > 1 ? '' : 'disabled'"
@@ -191,20 +188,26 @@
             <CustomSelector
               type="sort-col"
               :filterBy="filterBy"
-              :currIdx="currIdx"
+              :currSortOptions="currSortOptions"
+              :index="sortObj.idx"
+              :isOpen="currSortOptions.idx === index && currSortOptions.type === 'sort-col'"
               @handle-sort="$emit('handle-sort', 'update col', sortObj.idx, $event)"
-            />
+              @toggle-sort-options="toggleSortOptions"
+              />
 
             <CustomSelector
               type="sort-dir"
               :filterBy="filterBy"
-              :currIdx="currIdx"
+              :currSortOptions="currSortOptions"
+              :index="sortObj.idx"
+              :isOpen="currSortOptions.idx === index && currSortOptions.type === 'sort-dir'"
               @handle-sort="$emit('handle-sort', 'update dir', sortObj.idx, $event)"
+              @toggle-sort-options="toggleSortOptions"
             />
 
             <button
               class="delete-sort-btn flex center"
-              @click.prevent="$emit('handle-sort', 'remove', sortObj.idx)"
+              @click.prevent.stop="$emit('handle-sort', 'remove', sortObj.idx)"
             >
               <svg
                 viewBox="0 0 20 20"
@@ -221,8 +224,7 @@
         </ul>
         <button
           class="add-new-sort"
-          @click.prevent="$emit('handle-sort', 'add')"
-        >
+          @click.prevent="$emit('handle-sort', 'add')">
           + New sort
         </button>
       </form>
@@ -241,12 +243,22 @@ export default {
   data() {
     return {
       currIdx: 0,  // Current sort obj idx
+      currSortOptions: { type: '', idx: null },
       users: [
         { id: 1, fullName: 'Jenny Tover', imgUrl: 'https://robohash.org/jennyTover.png?set=set5' },
         { id: 2, fullName: 'Shoval Sabag', imgUrl: 'https://robohash.org/shovalSabag.png?set=set5' },
         { id: 3, fullName: 'Guest', imgUrl: 'https://robohash.org/guest.png?set=set5' },
       ],
     }
+  },
+  methods: {
+    toggleSortOptions(type, idx) {
+      if (this.currSortOptions.type === type && this.currSortOptions.idx === idx) {
+        this.currSortOptions = { type: '', idx: null }
+      } else {
+        this.currSortOptions = { type, idx }
+      }
+    },
   },
   components: { CustomSelector },
 }
