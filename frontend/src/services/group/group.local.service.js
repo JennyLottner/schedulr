@@ -1,21 +1,9 @@
-import { storageService } from "../storage.service"
 import { boardService } from "../board/board.local.service"
 
-const userBoards = []
-const BOARDS_KEY = 'boards_db'
-const user = userService.getUser()
-
-
-function _loadUserBoards() {
-    const boards = storageService.loadFromStorage(BOARDS_KEY)
-    boards.forEach(board => {
-        if (user.boards.has(board.id)) userBoards.push(board)
-    })
-}
-
 function _changeGroupField(boardId, groupId, field, value) {
+    const userBoards = boardService.getUserBoards()
     if (!(userBoards(boardId => id === boardId))) return console.error('The user has no access to this board')
-    const boards = boardService.getBoards()
+    const boards = boardService.query()
     const chosenGroup = _getBoardsGroup(boardId, groupId, boards)
     if (!chosenGroup) return console.error('The user has no access to this group')
     const groupToEdit = { ...chosenGroup }
@@ -34,8 +22,9 @@ const _getBoardGroupAndGroupIdx = (boardId, groupId, boards) => {
 }
 
 function _changeGroupItemField(boardId, groupId, itemId, field, value) {
+    const userBoards = boardService.getUserBoards()
     if (!(userBoards(boardId => id === boardId))) return console.error('The user has no access to this board')
-    const boards = boardService.getBoards()
+    const boards = boardService.query()
     const chosenGroupAndGroupIdx = _getBoardGroupAndGroupIdx(boardId, groupId, boards)
     if (!chosenGroup) return console.error('The user has no access to this group')
     const idxOfChosenGroup = chosenGroupAndGroupIdx[1]
@@ -73,7 +62,7 @@ function addLabelToItem(boardId, groupId, itemId, val) {
 
 function _removeValueFromItem(boardId, groupId, itemId, field, val) {
     if (!(userBoards(boardId => id === boardId))) return console.error('The user has no access to this board')
-    const boards = boardService.getBoards()
+    const boards = boardService.query()
     const chosenGroupAndGroupIdx = _getBoardGroupAndGroupIdx(boardId, groupId, boards)
     if (!chosenGroup) return console.error('The user has no access to this group')
     const idxOfChosenGroup = chosenGroupAndGroupIdx[1]
