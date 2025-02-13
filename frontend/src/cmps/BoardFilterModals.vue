@@ -117,16 +117,15 @@
     </article>
 
     <article v-else-if="selected === 'filter'" class="filter-modal">
+      <div class="filter-title flex align-center">
+        <h2>Advanced Filters</h2>
+      </div>
       <form>
-        <select
-          :value="filterBy.filter"
-          @change="$emit('update-filter', 'filter', $event.target.value)"
-        >
-          <option value="" disabled hidden>Choose something</option>
-          <option value="A">A</option>
-          <option value="B">B</option>
-        </select>
-      </form>
+        <!-- filter selectors here -->
+        <button class="add-new-filter">
+          + New Filter
+        </button> <!-- @click.prevent="$emit('handle-filter', 'add')" -->
+      </form> 
     </article>
 
     <article v-else-if="selected === 'sort'" class="sort-modal">
@@ -389,6 +388,20 @@ article {
 
   &.filter-modal {
     right: 0;
+
+    .filter-title {
+      margin-block-end: 0.9rem;
+
+      h2 {
+        font-weight: 600;
+      }
+    }
+
+    .add-new-filter {
+      height: 2rem;
+      line-height: 1.5rem;
+      padding: 0.25rem 0.5rem;
+    }
   }
 
   &.sort-modal {
