@@ -1,3 +1,5 @@
+@import "../setup/vars";
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -32,11 +34,29 @@ ul {
 }
 
 button {
-    cursor: pointer;
-    border: none;
     padding: 0;
+    border: none;
+    border-radius: $border-radius-xs;
+    
+    cursor: pointer;
 }
 
 li {
     list-style-type: none;
 }
+
+svg {
+    color: $svg-color;
+}
+
+input {
+    color: $font-color;
+    background-color: transparent;
+    border: none;
+    border-radius: $border-radius-xs;
+
+    &:focus-visible,
+    &:focus {
+      outline: none;
+    }
+  }
