@@ -72,3 +72,11 @@
     white-space: nowrap;
   }
 }
+
+@mixin blueLink {
+    color: $blue-btn;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
