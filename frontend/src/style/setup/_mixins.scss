@@ -1,12 +1,10 @@
-@import "./_vars";
+@import "./vars";
 
 @mixin headerBtn {
     height: 2.5rem;
     width: 2.5rem;
     color: $font-color;
     background-color: transparent;
-    border: none;
-    border-radius: $border-radius-xs;
 
     display: flex;
     align-items: center;
@@ -18,5 +16,41 @@
 
     &:active {
         scale: 0.95;
+    }
+}
+
+@mixin clearBtn {
+    height: 2rem;
+    color: $font-color;
+    padding-inline: 0.5rem 0.75rem;
+    background-color: transparent;
+    border-radius: $border-radius-xs;
+
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    &:hover {
+      background-color: $primary-background-hover-color;
+    }
+
+    &.selected {
+      background-color: $primary-selected-color;
+    }
+}
+
+@mixin blueBtn {
+    height: 2rem;
+    color: white;
+    background-color: $blue-btn;
+    border-radius: $border-radius-xs;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover,
+    &.selected {
+      background-color: $blue-btn-hover;
     }
 }
