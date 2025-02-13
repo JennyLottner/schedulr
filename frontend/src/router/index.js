@@ -3,7 +3,8 @@ import MainPage from '../pages/MainPage.vue'
 import HomePage from '../pages/subPages/HomePage.vue'
 import MyWorkPage from '../pages/subPages/MyWorkPage.vue'
 import BoardPage from '../pages/subPages/BoardPage.vue'
-import LoginSignup from '@/pages/LoginSignup.vue'
+import LoginPage from '@/pages/LoginPage.vue'
+import PageNotFound from '@/pages/PageNotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,7 +34,12 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: LoginSignup,
+      component: LoginPage,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: '404 Page Not Found',
+      component: PageNotFound,
     },
   ]
 })
