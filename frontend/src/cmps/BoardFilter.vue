@@ -15,7 +15,6 @@
           viewBox="0 -4.5 20 20"
           version="1.1"
         >
-          <title>arrow_down [#338]</title>
           <g
             id="Page-1"
             stroke="none"
@@ -268,7 +267,7 @@ export default {
     },
   },
   computed: {
-    isSelected() {   // handle class for selected styling
+    isSelected() {   // Handle class for selected styling
       return (val) => ({ selected: this.selected === val })
     },
   },
@@ -331,7 +330,7 @@ export default {
       &:first-of-type {
         padding-inline: 0.75rem;
         border-radius: $border-radius-xs 0 0 $border-radius-xs;
-        border-inline-end: 1px solid $hovered-blue-btn;
+        border-inline-end: 1px solid $blue-btn-hover;
       }
 
       &:nth-of-type(2) {
@@ -341,7 +340,7 @@ export default {
 
       &:hover,
       &.selected {
-        background-color: $hovered-blue-btn;
+        background-color: $blue-btn-hover;
       }
     }
   }

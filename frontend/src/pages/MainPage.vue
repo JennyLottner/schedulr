@@ -36,14 +36,13 @@ export default {
 
   .nav-bar {
     grid-area: 2 / 1 / 3 / 2;
-    border-radius: 0 0.5rem 0 0;
+    border-radius: 0 $border-radius-s 0 0;
   }
 
   main {
     grid-area: 2 / 2 / 3 / 3;
-    border-radius: 0.5rem 0 0 0;
     height: 100%;
-    border-radius: 0.5rem 0 0 0;
+    border-radius: $border-radius-s 0 0 0;
     background-color: white;
     overflow: hidden;
 

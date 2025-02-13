@@ -1,20 +1,26 @@
+// Main Colors
 $nav-background: #f6f7fc;
 $blue-background: #eceff8;
 $app-gray: #d0d4e4;
 
-$blue-btn: #0073ea; // and nav selected
-$hovered-blue-btn: #0060b9;
-$blue-btn-hover: #cbe5fe;
-$primary-selected-color: #cbe5fe;
-$primary-background-hover-color: #6768791a;
-$primary-background-color: #676879;
+// font & svg Colors
 $svg-color: #68697a;
 $font-color: #323338;
 $txt-clr: #333;
 
+// Button Background Colors
+$blue-btn: #0073ea; // and nav selected
+$blue-btn-hover: #0060b9;
+
+$primary-background-color: #676879;
+$primary-background-hover-color: #6768791a;
+$primary-selected-color: #cbe5fe;
+
+// Border Radii
 $border-radius-xs: 4px;
 $border-radius-s: 8px;
 
+// Status Colors
 $status-none: #c4c4c4;
 $status-in-progress: #fdab3d;
 $status-in-progress: #df2f4a;

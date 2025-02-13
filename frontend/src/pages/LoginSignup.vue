@@ -111,6 +111,7 @@ export default {
 
 <style lang="scss">
 @import "../style/setup/functions";
+@import "../style/setup/vars";
 
 .login-section {
   main {
@@ -213,7 +214,7 @@ export default {
 
     .google-btn {
       align-self: center;
-      border-radius: 4px;
+      border-radius: $border-radius-xs;
       padding: 12px 16px;
       border: 1px solid #c5c7d0;
       background-color: transparent;

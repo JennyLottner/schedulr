@@ -94,7 +94,7 @@ export default {
   .user-btn {
     height: 2rem;
     width: 3.5rem;
-    border-radius: 0.25rem;
+    border-radius: $border-radius-xs;
     background-color: $nav-background;
     margin-inline: 0.25rem 0.8rem;
     padding-inline-start: 1rem;

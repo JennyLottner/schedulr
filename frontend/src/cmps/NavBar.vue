@@ -331,7 +331,7 @@ nav {
   .tab-container {
     background-color: transparent;
     padding: 0.5rem 0.25rem 0.5rem 0.375rem;
-    border-radius: 4px;
+    border-radius: $border-radius-xs;
 
     gap: 0.45rem;
 
@@ -405,10 +405,10 @@ nav {
       width: 2rem;
       background-color: $blue-btn;
       border: 1px $app-gray solid;
-      border-radius: 4px;
+      border-radius: $border-radius-xs;
 
       &:hover {
-        background-color: $hovered-blue-btn;
+        background-color: $blue-btn-hover;
       }
     }
   }
