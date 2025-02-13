@@ -1,6 +1,10 @@
 <template>
   <section class="login-section">
-    <LoginSignupHeader/>
+    
+    <header>
+      <img class="schedulr-logo" src="../assets/pics/schedulr-logo.png" alt="Schedulr logo"/>
+      <h1>schedulr</h1>
+    </header>
 
     <main class="flex column center">
       <div class="reg-login-wrapper flex column">
@@ -106,6 +110,26 @@ export default {
 
 .login-section {
   color: $font-color;
+
+  header {
+    height: 3.5rem;
+    background-color: #f7f7f7;
+    padding-inline-start: 1.25rem;
+    border-bottom: 1px solid $app-gray;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    img {
+      height: 2rem;
+    }
+  }
 
   main {
     margin-block: 2.5rem 1.5rem;
