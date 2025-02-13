@@ -126,9 +126,11 @@ export default {
     input {
       height: 100%;
       width: 8rem;
+      color: $font-color;
+      border: none;
+
       flex-grow: 1;
       flex-shrink: 1;
-      border: none;
 
       &:focus {
         outline: none;

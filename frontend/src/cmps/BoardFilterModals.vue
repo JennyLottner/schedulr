@@ -281,6 +281,8 @@ article {
   gap: 1rem;
 
   & > * {
+    color: $font-color;
+
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -297,6 +299,7 @@ article {
   }
 
   button {
+    color: $font-color;
     background-color: transparent;
     border-radius: $border-radius-xs;
 
@@ -332,6 +335,7 @@ article {
     column-gap: 0.5rem;
 
     input {
+      color: $font-color;
       background-color: transparent;
       border: none;
 
