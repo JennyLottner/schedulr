@@ -54,7 +54,7 @@
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="#68697a"
+          fill="currentColor"
           width="16px"
           height="16px"
           viewBox="0 0 32 32"
@@ -290,6 +290,7 @@ export default {
 
 <style scoped lang="scss">
 @import "../style/setup/vars";
+@import "../style/setup/mixins";
 
 .filter-section {
   padding-block: 1rem;
@@ -297,56 +298,30 @@ export default {
   gap: 0.5rem;
 
   button {
-    height: 2rem;
     font-size: 0.875rem;
 
     &:not(.add-btn button) {
-      color: $font-color;
-      padding-inline: 0.5rem 0.75rem;
-      border-radius: $border-radius-xs;
-      background-color: transparent;
-
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-
-      &:hover {
-        background-color: $primary-background-hover-color;
-      }
-
-      &.selected {
-        background-color: $primary-selected-color;
-      }
+      @include clearBtn;
     }
   }
-
-  .add-btn {
-    margin-inline-end: 0.5rem;
-
-    button:not(.more-btn) {
-      color: white;
-      background-color: $blue-btn;
-
-      &:first-of-type {
-        padding-inline: 0.75rem;
-        border-radius: $border-radius-xs 0 0 $border-radius-xs;
-        border-inline-end: 1px solid $blue-btn-hover;
+    
+    .add-btn {
+      margin-inline-end: 0.5rem;
+      
+      button {
+        @include blueBtn;
+        
+        &:first-of-type {
+          padding-inline: 0.75rem;
+          border-radius: $border-radius-xs 0 0 $border-radius-xs;
+          border-inline-end: 1px solid $blue-btn-hover;
+        }
+        
+        &:nth-of-type(2) {
+          width: 1.75rem;
+          border-radius: 0 $border-radius-xs $border-radius-xs 0;
+        }
       }
-
-      &:nth-of-type(2) {
-        width: 1.75rem;
-        border-radius: 0 $border-radius-xs $border-radius-xs 0;
-      }
-
-      &:hover,
-      &.selected {
-        background-color: $blue-btn-hover;
-      }
-    }
-  }
-
-  svg {
-    color: $svg-color;
   }
 
   .btn-modal-container {

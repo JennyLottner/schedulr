@@ -152,15 +152,8 @@ export default {}
       padding-inline-start: 1.875rem;
       text-align: start;
 
-      input {
-        background-color: transparent;
-        border: none;
-        outline: none;
-
-        &:hover {
+      input:hover {
           border: 1px solid $primary-background-hover-color;
-          border-radius: $border-radius-xs;
-        }
       }
     }
 

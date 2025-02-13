@@ -52,7 +52,7 @@
         <div class="search-bar grid align-center">
           <svg
             viewBox="0 0 20 20"
-            fill="#68697a"
+            fill="currentColor"
             width="16px"
             height="16px"
             aria-hidden="true"
@@ -61,7 +61,7 @@
           >
             <path
               d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
-              fill="#68697a"
+              fill="currentColor"
               fill-rule="evenodd"
               clip-rule="evenodd"
             ></path>
@@ -144,21 +144,21 @@
           >
             <path
               d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-              stroke="#68697a"
+              stroke="currentColor"
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
             <path
               d="M9 9C9 5.49997 14.5 5.5 14.5 9C14.5 11.5 12 10.9999 12 13.9999"
-              stroke="#68697a"
+              stroke="currentColor"
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
             <path
               d="M12 18.01L12.01 17.9989"
-              stroke="#68697a"
+              stroke="currentColor"
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -265,28 +265,17 @@ export default {
 
 <style scoped lang="scss">
 @import "../style/setup/vars";
+@import "../style/setup/mixins";
 
 article {
-  position: absolute;
+  @include modal;
   top: 2.5rem;
-
-  color: $font-color;
-  background-color: white;
+  
   padding: 1.25rem 1rem 1rem;
-  border-radius: $border-radius-s;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 17px 6px;
 
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
-  & > * {
-    color: $font-color;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
 
   h2 {
     font-size: 1rem;
@@ -330,25 +319,10 @@ article {
   &.search-modal .search-bar {
     padding: 0.4rem 0.25rem 0.4rem 0.375rem;
     border: 1px $app-gray solid;
+    border-radius: $border-radius-xs;
 
     grid-template-columns: 1rem minmax(12rem, 1fr);
     column-gap: 0.5rem;
-
-    input {
-      color: $font-color;
-      background-color: transparent;
-      border: none;
-
-      &:focus-visible {
-        outline: none;
-      }
-
-      svg {
-        color: $svg-color;
-      }
-
-      caret-color: $font-color;
-    }
   }
 
   &.person-modal {
@@ -402,9 +376,7 @@ article {
     }
 
     .add-new-filter {
-      height: 2rem;
-      line-height: 1.5rem;
-      padding: 0.25rem 0.5rem;
+      @include clearBtn;
     }
   }
 
@@ -463,9 +435,7 @@ article {
     }
 
     .add-new-sort {
-      height: 2rem;
-      line-height: 1.5rem;
-      padding: 0.25rem 0.5rem;
+      @include clearBtn;
     }
   }
 }

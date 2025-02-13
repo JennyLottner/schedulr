@@ -45,9 +45,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../style/setup/_mixins";
+@import "../style/setup/mixins";
 @import "../style/setup/vars";
-@import "../style/basics/helpers";
 
 .app-header {
   padding-inline: 1.5rem;

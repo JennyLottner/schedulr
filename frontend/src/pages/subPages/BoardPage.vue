@@ -124,7 +124,6 @@ export default {
       border-radius: $border-radius-xs $border-radius-xs 0 0;
       border-block-end: 2px solid $blue-btn;
       margin-block: 0.5rem -1px;
-      z-index: 1;
 
       gap: 0.2rem;
 

@@ -145,11 +145,8 @@ export default {
           padding: 6px 12px;
           width: em(360px);
           height: em(40px);
-          border-radius: em(4px);
           border: 1px solid #ccc;
           font-size: 1em;
-          color: #555;
-          outline: none;
           justify-self: flex-start;
 
           &::placeholder {

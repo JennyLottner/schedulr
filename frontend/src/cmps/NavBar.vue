@@ -312,7 +312,7 @@ export default {
 
 <style scoped lang="scss">
 @import "../style/setup/vars";
-@import "../style/setup/typography";
+@import "../style/setup/mixins";
 
 nav {
   font-family: Figtree, Roboto;
@@ -320,7 +320,7 @@ nav {
   padding: 0.25rem 0.75rem;
   background-image: linear-gradient($nav-background, transparent);
 
-  gap: 0.12rem;
+  gap: 0.125rem;
 
   .workplaces,
   .favorites,
@@ -329,14 +329,16 @@ nav {
   }
 
   .tab-container {
+    position: relative;
+    height: 2rem;
     background-color: transparent;
-    padding: 0.5rem 0.25rem 0.5rem 0.375rem;
+    padding: 0.5rem 0.375rem;
     border-radius: $border-radius-xs;
 
     gap: 0.45rem;
 
     p {
-      max-width: calc(100% - 1.75rem);
+      max-width: calc(100% - 3rem);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -355,6 +357,7 @@ nav {
     }
 
     &.workspace-title {
+      margin-block-start: -0.25rem;
       cursor: default;
     }
   }
@@ -375,17 +378,7 @@ nav {
 
       grid-template-columns: 1rem calc(100% - 2rem) 1rem;
 
-      input {
-        background-color: transparent;
-        border: none;
-
-        &:focus-visible {
-          outline: none;
-        }
-      }
-
       button {
-        border: none;
         opacity: 0;
         transition: opacity 1s;
         background-color: transparent;
@@ -401,15 +394,8 @@ nav {
     }
 
     .add-btn {
-      height: 2rem;
+      @include blueBtn;
       width: 2rem;
-      background-color: $blue-btn;
-      border: 1px $app-gray solid;
-      border-radius: $border-radius-xs;
-
-      &:hover {
-        background-color: $blue-btn-hover;
-      }
     }
   }
 }
