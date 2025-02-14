@@ -60,7 +60,7 @@
       <div class="no-account flex column align-center">
         <p>
           Don't have an account yet?
-          <RouterLink to="/signup" class="signup-page-link">Sign up</RouterLink>
+          <RouterLink to="/sign_up_new" class="signup-page-link">Sign up</RouterLink>
         </p>
         <p>
           Can't log in?
@@ -74,8 +74,6 @@
 </template>
 
 <script>
-import LoginSignupHeader from "@/cmps/LoginSignupHeader.vue"
-
 export default {
   data() {
     return {
@@ -96,9 +94,6 @@ export default {
       this.$store.dispatch({ type: "login", credentials: this.credentials });
       this.$router.push({ name: 'main' }) //should be home but does;t work without reloading...
     },
-  },
-  components: {
-    LoginSignupHeader,
   },
 }
 </script>
