@@ -3,7 +3,7 @@
     <section class="home-page">
       <header class="flex align-center">
         <div class="greetings flex column">
-          <p>Good {{ greetingByTimeOfDay }}, {{ userName }}!</p>
+          <p>Good {{ greetingByTimeOfDay }}, {{ firstName }}!</p>
           <h2>Quickly access your recent boards, Inbox and workspaces</h2>
         </div>
         <img
@@ -50,8 +50,8 @@ export default {
       if (time >= 17 && time < 20) return 'evening'    // 5pm to 8pm
       if (time >= 20 || time < 5) return 'night'       // 8pm to 5am
     },
-    userName() {
-      if (!!this.$store.getters['user']) return this.$store.getters['user'].split(' ')[0]
+    firstName() {
+      if (this.$store.getters['usersName']) return this.$store.getters['usersName'].split(' ')[0]
       return 'Guest'
     },
   },

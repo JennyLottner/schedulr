@@ -67,7 +67,7 @@ export default {
   methods: {
     onSignup() {
       this.$store.dispatch({ type: "signup", credentials: this.credentials });
-      this.$router.replace({ name: '/home' })
+      this.$router.replace({ name: 'Home' })
     },
   },
   mounted() {

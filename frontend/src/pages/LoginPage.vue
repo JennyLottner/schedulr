@@ -92,7 +92,7 @@ export default {
         this.credentials.password = "guest";
       }
       this.$store.dispatch({ type: "login", credentials: this.credentials });
-      this.$router.push({ name: 'main' }) //should be home but does;t work without reloading...
+      this.$router.replace({ name: 'Home' }) //should be home but does;t work without reloading...
     },
   },
 }
