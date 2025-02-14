@@ -4,6 +4,8 @@ import HomePage from "../pages/subPages/HomePage.vue";
 import MyWorkPage from "../pages/subPages/MyWorkPage.vue";
 import BoardPage from "../pages/subPages/BoardPage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
+import SignupPageA from "@/pages/SignupPageA.vue";
+import SignupPageB from "@/pages/SignupPageB.vue";
 import PageNotFound from "@/pages/PageNotFound.vue";
 
 const router = createRouter({
@@ -32,9 +34,19 @@ const router = createRouter({
       ],
     },
     {
-      path: "/login",
-      name: "login",
+      path: "/log_in",
+      name: "Login",
       component: LoginPage,
+    },
+    {
+      path: "/sign_up_new",
+      name: "Sign-up new",
+      component: SignupPageA,
+    },
+    {
+      path: "/sign_up",
+      name: "Sign-up",
+      component: SignupPageB,
     },
     {
       path: "/:pathMatch(.*)*",
