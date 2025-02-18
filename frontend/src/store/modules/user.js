@@ -31,7 +31,8 @@ export default {
             return state.user
         },
         usersName(state) {
-            return state.user.fullName
+            if(state.user?.fullName) return state.user.fullName
+            return 'Guest'
         },
         userImg(state) {
             return state.user.imgUrl
