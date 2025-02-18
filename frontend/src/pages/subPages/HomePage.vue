@@ -49,10 +49,10 @@ export default {
       if (time >= 12 && time < 17) return 'afternoon'  // 12pm to 5pm
       if (time >= 17 && time < 20) return 'evening'    // 5pm to 8pm
       if (time >= 20 || time < 5) return 'night'       // 8pm to 5am
+      this.firstName()
     },
     firstName() {
-      if (this.$store.getters['usersName']) return this.$store.getters['usersName'].split(' ')[0]
-      return 'Guest'
+      return this.$store.getters['usersName']
     },
   },
   components: {
