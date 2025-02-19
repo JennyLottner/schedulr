@@ -53,14 +53,9 @@ export default {
 
 .options-modal {
   @include modal;
-  display: none;
 
   left: calc(100% + 0.5rem);
   bottom: 0;
-
-  &.opened {
-    display: block;
-  }
 
   li{
     display: flex;

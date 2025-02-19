@@ -27,29 +27,35 @@
     </button>
 
     <section v-if="onFavorites" class="workplaces flex column">
-      <section class="boards flex column">
-        <RouterLink to="/board" :class="isSelected('/board')" @contextmenu.prevent="openCloseOptions('1')"
-          class="tab-container flex align-center">
-          <svg  viewBox="0 0 20 20"  fill="currentColor"  width="18"  height="18"  aria-hidden="true"  class="icon_35c1b9ef14"  data-testid="icon">  <path    d="M7.5 4.5H16C16.2761 4.5 16.5 4.72386 16.5 5V15C16.5 15.2761 16.2761 15.5 16 15.5H7.5L7.5 4.5ZM6 4.5H4C3.72386 4.5 3.5 4.72386 3.5 5V15C3.5 15.2761 3.72386 15.5 4 15.5H6L6 4.5ZM2 5C2 3.89543 2.89543 3 4 3H16C17.1046 3 18 3.89543 18 5V15C18 16.1046 17.1046 17 16 17H4C2.89543 17 2 16.1046 2 15V5Z"    fill="currentColor"    fill-rule="evenodd"    clip-rule="evenodd"  ></path></svg>
-          <p>Sample board</p>
+      <ul class="boards flex column">
+        <li class="tab-container flex align-center">
+          <RouterLink to="/board" :class="isSelected('/board')" @contextmenu.prevent="openCloseOptions('1')"
+            class="flex align-center">
+            <svg  viewBox="0 0 20 20"  fill="currentColor"  width="18"  height="18"  aria-hidden="true"  class="icon_35c1b9ef14"  data-testid="icon">  <path    d="M7.5 4.5H16C16.2761 4.5 16.5 4.72386 16.5 5V15C16.5 15.2761 16.2761 15.5 16 15.5H7.5L7.5 4.5ZM6 4.5H4C3.72386 4.5 3.5 4.72386 3.5 5V15C3.5 15.2761 3.72386 15.5 4 15.5H6L6 4.5ZM2 5C2 3.89543 2.89543 3 4 3H16C17.1046 3 18 3.89543 18 5V15C18 16.1046 17.1046 17 16 17H4C2.89543 17 2 16.1046 2 15V5Z"    fill="currentColor"    fill-rule="evenodd"    clip-rule="evenodd"  ></path></svg>
+            <p>Sample board</p>
+  
+            <button class="options-btn" @click.prevent="openCloseOptions('1')">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="13" height="13" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><g transform="translate(0,590) scale(0.1,-0.1)" fill="#000000" stroke="none"><path d="M764 2975 c-82 -18 -137 -47 -201 -107 -90 -86 -133 -185 -133 -308 0 -124 43 -222 135 -309 168 -159 422 -155 588 10 168 168 168 430 0 598 -65 64 -139 104 -227 120 -72 13 -84 13 -162 -4z"/><path d="M2487 2980 c-222 -39 -383 -262 -348 -481 38 -233 257 -396 482 -360 282 46 442 341 324 598 -79 174 -271 276 -458 243z"/><path d="M4180 2976 c-84 -18 -149 -54 -213 -117 -129 -129 -161 -314 -83 -484 32 -71 124 -163 197 -198 162 -76 345 -48 474 74 92 87 135 185 135 309 0 123 -43 222 -133 308 -65 61 -119 89 -206 108 -78 16 -98 16 -171 0z"/></g></svg>
+            </button>
+          </RouterLink>
+          
+          <OptionsModal v-if="isOpened('1')" :boardId="'0123'"/>
+        </li>
 
-          <button class="options-btn" @click="openCloseOptions('1')">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="13" height="13" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><g transform="translate(0,590) scale(0.1,-0.1)" fill="#000000" stroke="none"><path d="M764 2975 c-82 -18 -137 -47 -201 -107 -90 -86 -133 -185 -133 -308 0 -124 43 -222 135 -309 168 -159 422 -155 588 10 168 168 168 430 0 598 -65 64 -139 104 -227 120 -72 13 -84 13 -162 -4z"/><path d="M2487 2980 c-222 -39 -383 -262 -348 -481 38 -233 257 -396 482 -360 282 46 442 341 324 598 -79 174 -271 276 -458 243z"/><path d="M4180 2976 c-84 -18 -149 -54 -213 -117 -129 -129 -161 -314 -83 -484 32 -71 124 -163 197 -198 162 -76 345 -48 474 74 92 87 135 185 135 309 0 123 -43 222 -133 308 -65 61 -119 89 -206 108 -78 16 -98 16 -171 0z"/></g></svg>
-          </button>
-          <OptionsModal :boardId="'0123'" :class="isOpened('1')"/>
-        </RouterLink>
-
-        <RouterLink to="/board" :class="isSelected('/board/id')" @contextmenu.prevent="openCloseOptions('2')"
-          class="tab-container flex align-center">
-          <svg  viewBox="0 0 20 20"  fill="currentColor"  width="18"  height="18"  aria-hidden="true"  class="icon_35c1b9ef14"  data-testid="icon">  <path    d="M7.5 4.5H16C16.2761 4.5 16.5 4.72386 16.5 5V15C16.5 15.2761 16.2761 15.5 16 15.5H7.5L7.5 4.5ZM6 4.5H4C3.72386 4.5 3.5 4.72386 3.5 5V15C3.5 15.2761 3.72386 15.5 4 15.5H6L6 4.5ZM2 5C2 3.89543 2.89543 3 4 3H16C17.1046 3 18 3.89543 18 5V15C18 16.1046 17.1046 17 16 17H4C2.89543 17 2 16.1046 2 15V5Z"    fill="currentColor"    fill-rule="evenodd"    clip-rule="evenodd"    ></path>  </svg>
-          <p>[where all boards show up in list. adding more for overflow]</p>
-
-          <button class="options-btn" @click="openCloseOptions('2')">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="13" height="13" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><g transform="translate(0,590) scale(0.1,-0.1)" fill="#000000" stroke="none"><path d="M764 2975 c-82 -18 -137 -47 -201 -107 -90 -86 -133 -185 -133 -308 0 -124 43 -222 135 -309 168 -159 422 -155 588 10 168 168 168 430 0 598 -65 64 -139 104 -227 120 -72 13 -84 13 -162 -4z"/><path d="M2487 2980 c-222 -39 -383 -262 -348 -481 38 -233 257 -396 482 -360 282 46 442 341 324 598 -79 174 -271 276 -458 243z"/><path d="M4180 2976 c-84 -18 -149 -54 -213 -117 -129 -129 -161 -314 -83 -484 32 -71 124 -163 197 -198 162 -76 345 -48 474 74 92 87 135 185 135 309 0 123 -43 222 -133 308 -65 61 -119 89 -206 108 -78 16 -98 16 -171 0z"/></g></svg>
-          </button>
-          <OptionsModal :boardId="'0123'" :class="isOpened('2')"/>
-        </RouterLink>
-      </section>
+        <li class="tab-container flex align-center">
+          <RouterLink to="/board" :class="isSelected('/board/id')" @contextmenu.prevent="openCloseOptions('2')"
+            class="flex align-center">
+            <svg  viewBox="0 0 20 20"  fill="currentColor"  width="18"  height="18"  aria-hidden="true"  class="icon_35c1b9ef14"  data-testid="icon">  <path    d="M7.5 4.5H16C16.2761 4.5 16.5 4.72386 16.5 5V15C16.5 15.2761 16.2761 15.5 16 15.5H7.5L7.5 4.5ZM6 4.5H4C3.72386 4.5 3.5 4.72386 3.5 5V15C3.5 15.2761 3.72386 15.5 4 15.5H6L6 4.5ZM2 5C2 3.89543 2.89543 3 4 3H16C17.1046 3 18 3.89543 18 5V15C18 16.1046 17.1046 17 16 17H4C2.89543 17 2 16.1046 2 15V5Z"    fill="currentColor"    fill-rule="evenodd"    clip-rule="evenodd"    ></path>  </svg>
+            <p>[where all boards show up in list. adding more for overflow]</p>
+  
+            <button class="options-btn" @click.prevent="openCloseOptions('2')">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="13" height="13" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><g transform="translate(0,590) scale(0.1,-0.1)" fill="#000000" stroke="none"><path d="M764 2975 c-82 -18 -137 -47 -201 -107 -90 -86 -133 -185 -133 -308 0 -124 43 -222 135 -309 168 -159 422 -155 588 10 168 168 168 430 0 598 -65 64 -139 104 -227 120 -72 13 -84 13 -162 -4z"/><path d="M2487 2980 c-222 -39 -383 -262 -348 -481 38 -233 257 -396 482 -360 282 46 442 341 324 598 -79 174 -271 276 -458 243z"/><path d="M4180 2976 c-84 -18 -149 -54 -213 -117 -129 -129 -161 -314 -83 -484 32 -71 124 -163 197 -198 162 -76 345 -48 474 74 92 87 135 185 135 309 0 123 -43 222 -133 308 -65 61 -119 89 -206 108 -78 16 -98 16 -171 0z"/></g></svg>
+            </button>
+          </RouterLink>
+          
+          <OptionsModal v-if="isOpened('2')" :boardId="'0123'"/>
+        </li>
+      </ul>
 
       <section class="empty-favorites">
         <!-- Add if statement for if user.favorites is empty -->
@@ -80,28 +86,34 @@
         </button>
       </div>
 
-      <section class="boards flex column">
-        <RouterLink to="/board" :class="isSelected('/board')" @contextmenu.prevent="openCloseOptions('3')"
-          class="tab-container flex align-center">
+      <ul class="boards flex column">
+        <li class="tab-container flex align-center">
+          <RouterLink to="/board" :class="isSelected('/board')" @contextmenu.prevent="openCloseOptions('3')"
+            class="flex align-center">
+              <svg  viewBox="0 0 20 20"  fill="currentColor"  width="18"  height="18"  aria-hidden="true"  class="icon_35c1b9ef14"  data-testid="icon">  <path    d="M7.5 4.5H16C16.2761 4.5 16.5 4.72386 16.5 5V15C16.5 15.2761 16.2761 15.5 16 15.5H7.5L7.5 4.5ZM6 4.5H4C3.72386 4.5 3.5 4.72386 3.5 5V15C3.5 15.2761 3.72386 15.5 4 15.5H6L6 4.5ZM2 5C2 3.89543 2.89543 3 4 3H16C17.1046 3 18 3.89543 18 5V15C18 16.1046 17.1046 17 16 17H4C2.89543 17 2 16.1046 2 15V5Z"    fill="currentColor"    fill-rule="evenodd"    clip-rule="evenodd"  ></path></svg>
+              <p>Sample board</p>
+  
+            <button class="options-btn flex center" @click.prevent="openCloseOptions('3')">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="13" height="13" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><g transform="translate(0,590) scale(0.1,-0.1)" fill="#000000" stroke="none"><path d="M764 2975 c-82 -18 -137 -47 -201 -107 -90 -86 -133 -185 -133 -308 0 -124 43 -222 135 -309 168 -159 422 -155 588 10 168 168 168 430 0 598 -65 64 -139 104 -227 120 -72 13 -84 13 -162 -4z"/><path d="M2487 2980 c-222 -39 -383 -262 -348 -481 38 -233 257 -396 482 -360 282 46 442 341 324 598 -79 174 -271 276 -458 243z"/><path d="M4180 2976 c-84 -18 -149 -54 -213 -117 -129 -129 -161 -314 -83 -484 32 -71 124 -163 197 -198 162 -76 345 -48 474 74 92 87 135 185 135 309 0 123 -43 222 -133 308 -65 61 -119 89 -206 108 -78 16 -98 16 -171 0z"/></g></svg>
+            </button>
+          </RouterLink>
+          
+          <OptionsModal v-if="isOpened('3')" :boardId="'0123'"/>
+        </li>
+
+        <li class="tab-container flex align-center">
+          <RouterLink to="/board" :class="isSelected('/board/id')" @contextmenu.prevent="openCloseOptions('4')"
+            class="flex align-center">
             <svg  viewBox="0 0 20 20"  fill="currentColor"  width="18"  height="18"  aria-hidden="true"  class="icon_35c1b9ef14"  data-testid="icon">  <path    d="M7.5 4.5H16C16.2761 4.5 16.5 4.72386 16.5 5V15C16.5 15.2761 16.2761 15.5 16 15.5H7.5L7.5 4.5ZM6 4.5H4C3.72386 4.5 3.5 4.72386 3.5 5V15C3.5 15.2761 3.72386 15.5 4 15.5H6L6 4.5ZM2 5C2 3.89543 2.89543 3 4 3H16C17.1046 3 18 3.89543 18 5V15C18 16.1046 17.1046 17 16 17H4C2.89543 17 2 16.1046 2 15V5Z"    fill="currentColor"    fill-rule="evenodd"    clip-rule="evenodd"  ></path></svg>
-            <p>Sample board</p>
-
-          <button class="options-btn flex center" @click="openCloseOptions('3')">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="13" height="13" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><g transform="translate(0,590) scale(0.1,-0.1)" fill="#000000" stroke="none"><path d="M764 2975 c-82 -18 -137 -47 -201 -107 -90 -86 -133 -185 -133 -308 0 -124 43 -222 135 -309 168 -159 422 -155 588 10 168 168 168 430 0 598 -65 64 -139 104 -227 120 -72 13 -84 13 -162 -4z"/><path d="M2487 2980 c-222 -39 -383 -262 -348 -481 38 -233 257 -396 482 -360 282 46 442 341 324 598 -79 174 -271 276 -458 243z"/><path d="M4180 2976 c-84 -18 -149 -54 -213 -117 -129 -129 -161 -314 -83 -484 32 -71 124 -163 197 -198 162 -76 345 -48 474 74 92 87 135 185 135 309 0 123 -43 222 -133 308 -65 61 -119 89 -206 108 -78 16 -98 16 -171 0z"/></g></svg>
-          </button>
-          <OptionsModal :boardId="'0123'" :class="isOpened('3')"/>
-        </RouterLink>
-
-        <RouterLink to="/board" :class="isSelected('/board/id')" @contextmenu.prevent="openCloseOptions('4')"
-          class="tab-container flex align-center">
-          <svg  viewBox="0 0 20 20"  fill="currentColor"  width="18"  height="18"  aria-hidden="true"  class="icon_35c1b9ef14"  data-testid="icon">  <path    d="M7.5 4.5H16C16.2761 4.5 16.5 4.72386 16.5 5V15C16.5 15.2761 16.2761 15.5 16 15.5H7.5L7.5 4.5ZM6 4.5H4C3.72386 4.5 3.5 4.72386 3.5 5V15C3.5 15.2761 3.72386 15.5 4 15.5H6L6 4.5ZM2 5C2 3.89543 2.89543 3 4 3H16C17.1046 3 18 3.89543 18 5V15C18 16.1046 17.1046 17 16 17H4C2.89543 17 2 16.1046 2 15V5Z"    fill="currentColor"    fill-rule="evenodd"    clip-rule="evenodd"  ></path></svg>
-          <p>[where all boards show up in list]</p>
-          <button class="options-btn" @click="openCloseOptions('4')">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="13" height="13" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><g transform="translate(0,590) scale(0.1,-0.1)" fill="#000000" stroke="none"><path d="M764 2975 c-82 -18 -137 -47 -201 -107 -90 -86 -133 -185 -133 -308 0 -124 43 -222 135 -309 168 -159 422 -155 588 10 168 168 168 430 0 598 -65 64 -139 104 -227 120 -72 13 -84 13 -162 -4z"/><path d="M2487 2980 c-222 -39 -383 -262 -348 -481 38 -233 257 -396 482 -360 282 46 442 341 324 598 -79 174 -271 276 -458 243z"/><path d="M4180 2976 c-84 -18 -149 -54 -213 -117 -129 -129 -161 -314 -83 -484 32 -71 124 -163 197 -198 162 -76 345 -48 474 74 92 87 135 185 135 309 0 123 -43 222 -133 308 -65 61 -119 89 -206 108 -78 16 -98 16 -171 0z"/></g></svg>
-          </button>
-          <OptionsModal :boardId="'0123'" :class="isOpened('4')"/>
-        </RouterLink>
-      </section>
+            <p>[where all boards show up in list]</p>
+            <button class="options-btn" @click.prevent="openCloseOptions('4')">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="13" height="13" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><g transform="translate(0,590) scale(0.1,-0.1)" fill="#000000" stroke="none"><path d="M764 2975 c-82 -18 -137 -47 -201 -107 -90 -86 -133 -185 -133 -308 0 -124 43 -222 135 -309 168 -159 422 -155 588 10 168 168 168 430 0 598 -65 64 -139 104 -227 120 -72 13 -84 13 -162 -4z"/><path d="M2487 2980 c-222 -39 -383 -262 -348 -481 38 -233 257 -396 482 -360 282 46 442 341 324 598 -79 174 -271 276 -458 243z"/><path d="M4180 2976 c-84 -18 -149 -54 -213 -117 -129 -129 -161 -314 -83 -484 32 -71 124 -163 197 -198 162 -76 345 -48 474 74 92 87 135 185 135 309 0 123 -43 222 -133 308 -65 61 -119 89 -206 108 -78 16 -98 16 -171 0z"/></g></svg>
+            </button>
+          </RouterLink>
+          
+          <OptionsModal v-if="isOpened('4')" :boardId="'0123'"/>
+        </li>
+      </ul>
     </section>
   </nav>
 </template>
@@ -148,7 +160,7 @@ export default {
       return (val) => ({ selected: this.currPath === val })
     },
     isOpened() {  // Handle which board has opened options menu
-      return (val) => ({ opened: this.openedOptions === val })
+      return (val) => this.openedOptions === val
     }
   },
   mounted() {     // Add global click listener
@@ -189,6 +201,13 @@ nav {
     border-radius: $border-radius-xs;
 
     gap: 0.45rem;
+    
+    a {
+      height: 100%;
+      width: 100%;
+
+      gap: 0.45rem;
+    }
 
     p {
       max-width: calc(100% - 3rem);
