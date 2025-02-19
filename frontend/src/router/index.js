@@ -1,12 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import MainPage from "../pages/MainPage.vue";
-import HomePage from "../pages/subPages/HomePage.vue";
-import MyWorkPage from "../pages/subPages/MyWorkPage.vue";
-import BoardPage from "../pages/subPages/BoardPage.vue";
+import MainPage from "@/pages/MainPage.vue";
+import HomePage from "@/pages/subPages/HomePage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
-import SignupPageA from "@/pages/SignupPageA.vue";
-import SignupPageB from "@/pages/SignupPageB.vue";
-import PageNotFound from "@/pages/PageNotFound.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,12 +19,12 @@ const router = createRouter({
         {
           path: "/my_work",
           name: "My Work",
-          component: MyWorkPage,
+          component: () => import('@/pages/subPages/MyWorkPage.vue'),
         },
         {
           path: "/board",
           name: "board",
-          component: BoardPage,
+          component: () => import('@/pages/subPages/BoardPage.vue'),
         },
       ],
     },
@@ -41,17 +36,17 @@ const router = createRouter({
     {
       path: "/sign_up_new",
       name: "Sign-up new",
-      component: SignupPageA,
+      component: () => import('@/pages/SignupPageA.vue'),
     },
     {
       path: "/sign_up",
       name: "Sign-up",
-      component: SignupPageB,
+      component: () => import('@/pages/SignupPageB.vue'),
     },
     {
       path: "/:pathMatch(.*)*",
       name: "404 Page Not Found",
-      component: PageNotFound,
+      component: () => import('@/pages/PageNotFound.vue'),
     },
   ],
 });
