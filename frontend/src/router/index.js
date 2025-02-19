@@ -49,6 +49,11 @@ const router = createRouter({
       component: () => import('@/pages/SignupPageB.vue'),
     },
     {
+      path: "/about",
+      name: "About",
+      component: () => import('@/pages/AboutPage.vue'),
+    },
+    {
       path: "/:pathMatch(.*)*",
       name: "404 Page Not Found",
       component: () => import('@/pages/PageNotFound.vue'),
