@@ -13,6 +13,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../style/setup/vars";
+@import "../../style/setup/vars";
 
 </style>
