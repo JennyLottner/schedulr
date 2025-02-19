@@ -2,11 +2,15 @@
   <div class="app-header flex align-center">
     <header class="flex align-center space-between">
       <section class="logo-section flex align-center">
+
         <button class="nav-btn" @click="$emit('toggleNavBar')">
           <svg  viewBox="0 0 20 20"  fill="currentColor"  width="18"  height="18"  aria-hidden="true"  class="icon_f74f57d4ab"  data-testid="icon">  <g clip-path="url(#a)">    <path      d="M4.5 2.25a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm7.75 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm7.75 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0ZM4.5 10A2.25 2.25 0 1 1 0 10a2.25 2.25 0 0 1 4.5 0Zm7.75 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0ZM20 10a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0ZM4.5 17.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm7.75 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm7.75 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"    ></path>  </g>  <defs>    <clipPath id="a"><path d="M0 0h20v20H0z"></path></clipPath>  </defs></svg>
         </button>
-        <img src="../assets/pics/schedulr-logo.png" alt="logo" />
-        <p><span>schedulr</span> work management</p>
+
+        <RouterLink class="logo-section flex align-center" to="/">
+          <img src="../assets/pics/schedulr-logo.png" alt="logo" />
+          <p><span>schedulr</span> work management</p>
+        </RouterLink>
       </section>
 
       <section class="actions-section flex align-center">
@@ -48,6 +52,7 @@
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
 import HeaderModals from './HeaderModals.vue'
 
 export default {
