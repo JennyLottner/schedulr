@@ -43,6 +43,19 @@ export default {
   },
   methods: {
     //add delete/rename/fav to here or elevate
+    handleOutsideClick(event) {  // Handle resetting filter type
+      if (!event.target.closest('.options-btn') && !event.target.closest('.options-modal')) { this.$emit('open-close-options') }
+      else if (event.target.closest('.options-modal')) { 
+        event.stopPropagation()
+        setTimeout(() => { this.$emit('open-close-options') }, 300)
+      }
+    },
+  },
+  mounted() {     // Add global click listener
+    document.addEventListener('click', this.handleOutsideClick)
+  },
+  beforeUnmount() {   // Remove global click listener
+    document.removeEventListener('click', this.handleOutsideClick)
   },
 }
 </script>

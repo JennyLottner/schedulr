@@ -39,7 +39,7 @@
             </button>
           </RouterLink>
           
-          <OptionsModal v-if="isOpened('1')" :boardId="'0123'"/>
+          <OptionsModal v-if="isOpened('1')" :boardId="'0123'"  @open-close-options="openCloseOptions"/>
         </li>
 
         <li class="tab-container flex align-center">
@@ -53,7 +53,7 @@
             </button>
           </RouterLink>
           
-          <OptionsModal v-if="isOpened('2')" :boardId="'0123'"/>
+          <OptionsModal v-if="isOpened('2')" :boardId="'0123'"  @open-close-options="openCloseOptions"/>
         </li>
       </ul>
 
@@ -98,7 +98,7 @@
             </button>
           </RouterLink>
           
-          <OptionsModal v-if="isOpened('3')" :boardId="'0123'"/>
+          <OptionsModal v-if="isOpened('3')" :boardId="'0123'"  @open-close-options="openCloseOptions"/>
         </li>
 
         <li class="tab-container flex align-center">
@@ -111,7 +111,7 @@
             </button>
           </RouterLink>
           
-          <OptionsModal v-if="isOpened('4')" :boardId="'0123'"/>
+          <OptionsModal v-if="isOpened('4')" :boardId="'0123'" @open-close-options="openCloseOptions"/>
         </li>
       </ul>
     </section>
@@ -147,13 +147,6 @@ export default {
       if (this.openedOptions === val) this.openedOptions = null
       else this.openedOptions = val
     },
-    handleOutsideClick(event) {  // Handle resetting filter type
-      if (!event.target.closest('.options-btn') && !event.target.closest('.options-modal')) { this.openCloseOptions() }
-      else if (event.target.closest('.options-modal')) { 
-        event.stopPropagation()
-        setTimeout(() => { this.openCloseOptions() }, 300)
-      }
-    },
   },
   computed: {
     isSelected() { // Handle class for selected styling
@@ -162,12 +155,6 @@ export default {
     isOpened() {  // Handle which board has opened options menu
       return (val) => this.openedOptions === val
     }
-  },
-  mounted() {     // Add global click listener
-    document.addEventListener('click', this.handleOutsideClick)
-  },
-  beforeUnmount() {   // Remove global click listener
-    document.removeEventListener('click', this.handleOutsideClick)
   },
   components: {
     OptionsModal,
