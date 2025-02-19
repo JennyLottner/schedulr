@@ -28,7 +28,7 @@
 
     <section v-if="onFavorites" class="workplaces flex column">
       <section class="boards flex column">
-        <RouterLink to="/board" :class="isSelected('/board')"
+        <RouterLink to="/board" :class="isSelected('/board')" @contextmenu.prevent="openCloseOptions('1')"
           class="tab-container flex align-center">
           <svg  viewBox="0 0 20 20"  fill="currentColor"  width="18"  height="18"  aria-hidden="true"  class="icon_35c1b9ef14"  data-testid="icon">  <path    d="M7.5 4.5H16C16.2761 4.5 16.5 4.72386 16.5 5V15C16.5 15.2761 16.2761 15.5 16 15.5H7.5L7.5 4.5ZM6 4.5H4C3.72386 4.5 3.5 4.72386 3.5 5V15C3.5 15.2761 3.72386 15.5 4 15.5H6L6 4.5ZM2 5C2 3.89543 2.89543 3 4 3H16C17.1046 3 18 3.89543 18 5V15C18 16.1046 17.1046 17 16 17H4C2.89543 17 2 16.1046 2 15V5Z"    fill="currentColor"    fill-rule="evenodd"    clip-rule="evenodd"  ></path></svg>
           <p>Sample board</p>
@@ -39,7 +39,7 @@
           <OptionsModal :boardId="'0123'" :class="isOpened('1')"/>
         </RouterLink>
 
-        <RouterLink to="/board" :class="isSelected('/board/id')"
+        <RouterLink to="/board" :class="isSelected('/board/id')" @contextmenu.prevent="openCloseOptions('2')"
           class="tab-container flex align-center">
           <svg  viewBox="0 0 20 20"  fill="currentColor"  width="18"  height="18"  aria-hidden="true"  class="icon_35c1b9ef14"  data-testid="icon">  <path    d="M7.5 4.5H16C16.2761 4.5 16.5 4.72386 16.5 5V15C16.5 15.2761 16.2761 15.5 16 15.5H7.5L7.5 4.5ZM6 4.5H4C3.72386 4.5 3.5 4.72386 3.5 5V15C3.5 15.2761 3.72386 15.5 4 15.5H6L6 4.5ZM2 5C2 3.89543 2.89543 3 4 3H16C17.1046 3 18 3.89543 18 5V15C18 16.1046 17.1046 17 16 17H4C2.89543 17 2 16.1046 2 15V5Z"    fill="currentColor"    fill-rule="evenodd"    clip-rule="evenodd"    ></path>  </svg>
           <p>[where all boards show up in list. adding more for overflow]</p>
@@ -81,7 +81,7 @@
       </div>
 
       <section class="boards flex column">
-        <RouterLink to="/board" :class="isSelected('/board')"
+        <RouterLink to="/board" :class="isSelected('/board')" @contextmenu.prevent="openCloseOptions('3')"
           class="tab-container flex align-center">
             <svg  viewBox="0 0 20 20"  fill="currentColor"  width="18"  height="18"  aria-hidden="true"  class="icon_35c1b9ef14"  data-testid="icon">  <path    d="M7.5 4.5H16C16.2761 4.5 16.5 4.72386 16.5 5V15C16.5 15.2761 16.2761 15.5 16 15.5H7.5L7.5 4.5ZM6 4.5H4C3.72386 4.5 3.5 4.72386 3.5 5V15C3.5 15.2761 3.72386 15.5 4 15.5H6L6 4.5ZM2 5C2 3.89543 2.89543 3 4 3H16C17.1046 3 18 3.89543 18 5V15C18 16.1046 17.1046 17 16 17H4C2.89543 17 2 16.1046 2 15V5Z"    fill="currentColor"    fill-rule="evenodd"    clip-rule="evenodd"  ></path></svg>
             <p>Sample board</p>
@@ -92,7 +92,7 @@
           <OptionsModal :boardId="'0123'" :class="isOpened('3')"/>
         </RouterLink>
 
-        <RouterLink to="/board" :class="isSelected('/board/id')"
+        <RouterLink to="/board" :class="isSelected('/board/id')" @contextmenu.prevent="openCloseOptions('4')"
           class="tab-container flex align-center">
           <svg  viewBox="0 0 20 20"  fill="currentColor"  width="18"  height="18"  aria-hidden="true"  class="icon_35c1b9ef14"  data-testid="icon">  <path    d="M7.5 4.5H16C16.2761 4.5 16.5 4.72386 16.5 5V15C16.5 15.2761 16.2761 15.5 16 15.5H7.5L7.5 4.5ZM6 4.5H4C3.72386 4.5 3.5 4.72386 3.5 5V15C3.5 15.2761 3.72386 15.5 4 15.5H6L6 4.5ZM2 5C2 3.89543 2.89543 3 4 3H16C17.1046 3 18 3.89543 18 5V15C18 16.1046 17.1046 17 16 17H4C2.89543 17 2 16.1046 2 15V5Z"    fill="currentColor"    fill-rule="evenodd"    clip-rule="evenodd"  ></path></svg>
           <p>[where all boards show up in list]</p>
