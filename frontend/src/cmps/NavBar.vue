@@ -197,6 +197,7 @@ nav {
     }
 
     p {
+      font-size: 0.875rem;
       max-width: calc(100% - 3rem);
       white-space: nowrap;
       overflow: hidden;
