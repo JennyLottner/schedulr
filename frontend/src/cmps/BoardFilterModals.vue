@@ -244,9 +244,9 @@ export default {
       currIdx: 0,  // Current sort obj idx
       currSortOptions: { type: '', idx: null },
       users: [
-        { id: 1, fullName: 'Jenny Tover', imgUrl: 'https://robohash.org/jennyTover.png?set=set5' },
-        { id: 2, fullName: 'Shoval Sabag', imgUrl: 'https://robohash.org/shovalSabag.png?set=set5' },
-        { id: 3, fullName: 'Guest', imgUrl: 'https://robohash.org/guest.png?set=set5' },
+        { id: 1, fullName: 'Jenny Tover', imgUrl: 'https://robohash.org/jenny?set=set5' },
+        { id: 2, fullName: 'Shoval Sabag', imgUrl: 'https://robohash.org/shoval?set=set5' },
+        { id: 3, fullName: 'Guest', imgUrl: 'https://robohash.org/guest?set=set5' },
       ],
     }
   },
