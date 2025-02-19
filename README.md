@@ -10,17 +10,17 @@ A collaborative project to recreate the core UI and functionality of Monday.com 
 
 ## Features
 ### Current Features
-- Authentication Pages: Login and signup pages with a responsive design.
-- Main Interface: A structured main page layout.
-- Navigation & UI Components: Includes a responsive header and navigation bar.
-- Home Page: Initial landing page with basic content and styling.
-- Responsive Design: More responsive than the original Monday.com where applicable.
+- **Authentication Pages:** Login and signup pages with a responsive design.
+- **Main Interface:** A structured main page layout.
+- **Navigation & UI Components:** Includes a responsive header and navigation bar.
+- **Home Page:** Initial landing page with basic content and styling.
+- **Responsive Design:** More responsive than the original Monday.com website where applicable.
 
 ### Upcoming Features
-- Backend Integration: To be implemented once the frontend is complete.
-- Dynamic Data Management: Moving from mock frontend data to backend-driven data.
-- Web Sockets: For two-way interactive communication.
-- Feature Expansion: Additional functionality as required.
+- **Backend Integration:** To be implemented once the frontend is complete.
+- **Dynamic Data Management:** Moving from mock frontend data to backend-driven data.
+- **Web Sockets:** For two-way interactive communication.
+- **Feature Expansion:** Additional functionality as required.
 
 ## Technologies Used
 - Vue
