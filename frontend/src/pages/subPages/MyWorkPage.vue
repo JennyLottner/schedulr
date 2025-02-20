@@ -1,6 +1,8 @@
 <template>
   <section class="my-work-page">
-    <h1>My Work</h1>
+    <header>
+      <h1>My Work</h1>
+    </header>
   </section>
 </template>
 
