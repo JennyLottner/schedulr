@@ -1,8 +1,8 @@
 <template>
   <div class="home-page-container">
     <section class="home-page">
-      <header class="flex align-center">
-        <div class="greetings flex column">
+      <header class="grid align-center">
+        <div class="greetings flex column justify-center">
           <p>Good {{ greetingByTimeOfDay }}, {{ firstName }}!</p>
           <h2>Quickly access your recent boards, Inbox and workspaces</h2>
         </div>
@@ -74,6 +74,7 @@ export default {
   color: $font-color;
 
   header {
+    grid-template-columns: 80% 20%;
     width: 100%;
     height: 4.6875rem;
     overflow: hidden;
@@ -81,6 +82,8 @@ export default {
     box-shadow: 0px 3px 12px #e6e9ef;
 
     .greetings {
+      height: 4.6875rem;
+
       p {
         font-size: 0.875rem;
         line-height: 1.32rem;
@@ -91,6 +94,10 @@ export default {
         font-weight: 500;
         line-height: 1.375rem;
       }
+    }
+
+    img {
+      height: 4.6875rem;
     }
   }
 

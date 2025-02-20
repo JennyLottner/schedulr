@@ -9,7 +9,7 @@ let users = [
         fullName: 'Jenny Tover',
         email: 'jenny@gmail.com',
         id: 1,      
-        imgUrl: 'https://scontent.fsdv1-2.fna.fbcdn.net/v/t39.30808-1/336327249_1399754383903354_5431621484366514305_n.jpg?stp=dst-jpg_s480x480&_nc_cat=101&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=7529rO5u1tAQ7kNvgEEoKSN&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=AJMWynPri4HlHr79AxdDNqP&oh=00_AYBNuYj9-SgXl13ix9rrRHMcgWBFeaQqgUTQt_k2LyJZ_A&oe=6700CD62',
+        imgUrl: 'https://robohash.org/jenny?set=set5',
         password: 'manoon',
         boards: new Map(), // boardId: true/false if favorite
     },
@@ -18,7 +18,7 @@ let users = [
         fullName: 'Shoval Sabag',
         email: 'shoval@gmail.com',
         id: 2,
-        imgUrl: 'https://scontent.fsdv1-2.fna.fbcdn.net/v/t39.30808-6/409621629_3462157944095507_399315322993000288_n.jpg?stp=cp6_dst-jpg&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=AAjr-5x7C3oQ7kNvgGPEnb0&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=AEZK1n0-pFOwR4VzGziaVgR&oh=00_AYCo6eHPoOilPHLotIoAeEeQZHRUE7_GeiIzNEQG44WnEg&oe=6700D3AC',
+        imgUrl: 'https://robohash.org/shoval?set=set5',
         password: 'manoon',
         boards: new Map(), // boardId: true/false if favorite
     },
@@ -27,7 +27,7 @@ let users = [
         fullName: 'Guest',
         email: 'guest@gmail.com',
         id: 3,
-        imgUrl: '../assets/pics/schedulr-logo.png',
+        imgUrl: 'https://robohash.org/guest?set=set5',
         password: 'guest',
         boards: new Map(), // boardId: true/false if favorite
     }

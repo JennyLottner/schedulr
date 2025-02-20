@@ -96,8 +96,8 @@
               class="flex center"
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
+                
+                
                 fill="#000000"
                 height="20px"
                 width="20px"
@@ -136,7 +136,7 @@
           title="Sort columns by priority, deadline or any other column on this board."
         >
           <svg
-            xmlns="http://www.w3.org/2000/svg"
+            
             width="800px"
             height="800px"
             viewBox="0 0 24 24"
@@ -244,9 +244,9 @@ export default {
       currIdx: 0,  // Current sort obj idx
       currSortOptions: { type: '', idx: null },
       users: [
-        { id: 1, fullName: 'Jenny Tover', imgUrl: 'https://robohash.org/jennyTover.png?set=set5' },
-        { id: 2, fullName: 'Shoval Sabag', imgUrl: 'https://robohash.org/shovalSabag.png?set=set5' },
-        { id: 3, fullName: 'Guest', imgUrl: 'https://robohash.org/guest.png?set=set5' },
+        { id: 1, fullName: 'Jenny Tover', imgUrl: 'https://robohash.org/jenny?set=set5' },
+        { id: 2, fullName: 'Shoval Sabag', imgUrl: 'https://robohash.org/shoval?set=set5' },
+        { id: 3, fullName: 'Guest', imgUrl: 'https://robohash.org/guest?set=set5' },
       ],
     }
   },

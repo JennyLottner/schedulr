@@ -1,8 +1,8 @@
 @import "./vars";
 
 @mixin headerBtn {
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 2rem;
+    width: 2rem;
     color: $font-color;
     background-color: transparent;
 
@@ -11,11 +11,17 @@
     justify-content: center;
 
     &:hover {
-        background-color: $primary-selected-color;
+        background-color: $primary-background-hover-color;
     }
 
     &:active {
-        scale: 0.95;
+      background-color: $primary-selected-color;
+      scale: 0.95;
+    }
+
+    @media (width > 600px) {
+      height: 2.5rem;
+      width: 2.5rem;
     }
 }
 
