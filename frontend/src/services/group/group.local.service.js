@@ -60,6 +60,40 @@ function addLabelToItem(boardId, groupId, itemId, val) {
     _changeGroupItemField(boardId, groupId, itemId, 'labels', val)
 }
 
+// function filterGroup(boardId, groupId, field, dir) {
+//     const userBoards = boardService.getUserBoards()
+//     if (!(userBoards(boardId => id === boardId))) return console.error('The user has no access to this board')
+//     const boards = boardService.query()
+//     const chosenGroup = _getBoardsGroup(boardId, groupId, boards)
+//     if (!chosenGroup) return console.error('The user has no access to this group')
+//     const groupToEdit = { ...chosenGroup }
+//     groupToEdit[field].
+// }
+
+//COMPLETE AFTER ZOOM
+
+// {
+//     id: 1,
+//         title: '',
+//             members: [],
+//                 groups: [
+//                     {
+//                         groupTitle: '',
+//                         id: 1,
+//                         items: [
+//                             {
+//                                 itemTitle: '',
+//                                 updates: [],
+//                                 people: [],
+//                                 status: '',
+//                                 date: new Date(),
+//                                 labels: [],
+//                             },
+//                         ],
+//                     },
+//                 ],
+// }
+
 function _removeValueFromItem(boardId, groupId, itemId, field, val) {
     if (!(userBoards(boardId => id === boardId))) return console.error('The user has no access to this board')
     const boards = boardService.query()
