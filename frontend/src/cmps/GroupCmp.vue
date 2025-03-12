@@ -2,7 +2,7 @@
   <section class="group-section">
     <h3>New Group</h3>
 
-    <table class="header-table">
+    <table>
       <thead>
         <tr class="grid group-grid">
           <th class="colored"></th>
@@ -60,6 +60,7 @@ export default {
 
   table {
     width: fit-content;
+    border-spacing: 0;
 
     td,
     th {
@@ -128,7 +129,7 @@ export default {
     }
 
     tfoot tr.grid {
-      margin-inline-start: 24.925rem;
+      margin-inline-start: 24.855rem;
       grid-template-columns: 6.1rem repeat(3, 8.1rem);
 
       td:first-of-type {
