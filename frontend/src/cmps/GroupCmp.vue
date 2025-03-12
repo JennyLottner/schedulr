@@ -1,7 +1,7 @@
 <template>
   <section class="group-section">
-    <header>
       <h3>New Group</h3>
+
       <table class="header-table">
         <thead>
           <tr class="grid group-grid">
@@ -15,10 +15,7 @@
             <th>+</th>
           </tr>
         </thead>
-      </table>
-    </header>
 
-    <table class="content-table">
       <tbody>
         <tr class="grid group-grid">
           <td class="colored"></td>
@@ -76,16 +73,16 @@
           </td>
           <td></td>
         </tr>
+      </tbody>
 
-        <tr class="footer-row group-grid grid">
-          <td></td>
+      <tfoot>
+        <tr class="group-grid grid">
           <td></td>
           <td class="status"></td>
           <td></td>
           <td class="label"></td>
-          <td></td>
         </tr>
-      </tbody>
+      </tfoot>
     </table>
   </section>
 </template>
@@ -98,14 +95,22 @@ export default {}
 @import "../style/setup/vars";
 
 .group-section {
+  cursor: default;
+
   table {
-    width: 100%;
+    width: fit-content;
 
     td,
     th {
       align-content: center;
       text-align: center;
-      border: 1px solid $app-gray;
+
+      font-size: 0.875rem;
+      font-weight: normal;
+      color: $font-color;
+
+      border-block-end: 1px solid $app-gray;
+      border-inline-end: 1px solid $app-gray;
     }
 
     .span2 {
@@ -113,34 +118,36 @@ export default {}
     }
 
     .group-grid {
-      width: 100%;
-      grid-template-columns:
-        0.375rem 2rem 18.5rem 4.05rem 6.1rem repeat(3, 8.1rem)
-        4.05rem;
+      grid-template-columns: 0.375rem 2rem 18.5rem 4.05rem 6.1rem repeat(3, 8.1rem) 4.05rem;
       grid-auto-rows: 2.25rem;
     }
 
-    .add-row {
-      grid-template-columns: 0.375rem 2rem 22.55rem 34.45rem;
-
-      input {
-        width: 80%;
-      }
+    .colored {
+      background-color: cornflowerblue;
+      border: none;
     }
 
-    .footer-row {
-      grid-template-columns: 24.925rem 6.1rem repeat(3, 8.1rem) 4.05rem;
+    thead {
+      th {
+        border-block-start: 1px solid $app-gray;
+
+        &:first-of-type {
+          border-radius: $border-radius-xs 0 0 0;
     }
+
+        &:last-of-type {
+          border-radius: 0 $border-radius-xs 0 0;
   }
 
   .content-table {
     button {
       background-color: transparent;
     }
-
-    tr:not(.footer-row):hover {
-      background-color: #f4f5f8;
     }
+
+    tbody {
+      .add-row {
+        grid-template-columns: 0.375rem 2rem 22.55rem 34.45rem;
 
     .colored {
     }
