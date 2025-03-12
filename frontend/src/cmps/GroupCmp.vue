@@ -1,6 +1,6 @@
 <template>
   <section class="group-section">
-    <h3>New Group</h3>
+    <h3 class="group-title">New Group</h3>
 
     <table>
       <thead>
@@ -53,11 +53,17 @@ export default {
 
 <style lang="scss">
 // not scoped so itemCmp gets table styling
+// cornflowerblue is hardcoded here but needs to by dynamic
 @import "../style/setup/vars";
 
 .group-section {
   cursor: default;
 
+  .group-title {
+    color: cornflowerblue;
+    margin-block-end: 0.75rem;
+  }
+  
   table {
     width: fit-content;
     border-spacing: 0;
